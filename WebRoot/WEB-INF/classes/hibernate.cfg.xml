@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/hotel
+	</property>
+	<property name="connection.username">bjf</property>
+	<property name="connection.password">123456</property>
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.show_sql">false</property>
+	<property name="hibernate.hbm2ddl.auto">none</property>
+	<property name="connection.autocommit">true</property>
+	<!-- 最大连接数 -->
+	<!-- <property name="c3p0.max_size">1500</property> -->
+	<!-- 最小连接数 -->
+	<!-- <property name="c3p0.min_size">20</property>
+	<property name="hibernate.c3p0.timeout">5000</property>
+	<property name="c3p0.max_statements">1000</property>
+	<property name="hibernate.c3p0.acquire_increment">2</property>
+	<property name="c3p0.validate">true</property>
+	<property name="c3p0.idle_test_period">30000</property> -->
+	<!-- 2013-09-04 
+		<property name="jdbc.fetch_size">50</property>
+	-->
+	<property name="jdbc.batch_size">35</property>
+
+	<property name="connection.autoReconnect">true</property>
+	<property name="connection.autoReconnectForPools">true</property>
+	<property name="connection.is-connection-validation-required">
+		true
+	</property>
+	<mapping resource="com/hotel/model/Operator.hbm.xml" />
+	<mapping resource="com/hotel/model/RoomInfo.hbm.xml" />
+	<mapping resource="com/hotel/model/RoomType.hbm.xml" />
+</session-factory>
+
+</hibernate-configuration>

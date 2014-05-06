@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hotel.model.RoomType" table="room_type" catalog="hotel">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="roomType" type="java.lang.String">
+            <column name="roomType" length="100" not-null="true" >
+                <comment>图片标题</comment>
+            </column>
+        </property>
+        <property name="bed" type="java.lang.String" not-null="true" >
+            <column name="bed" length="50">
+                <comment>图片发布时间</comment>
+            </column>
+        </property>
+        <property name="price" type="java.lang.String" not-null="true" >
+            <column name="price" length="50">
+                <comment>图片发布时间</comment>
+            </column>
+        </property>
+        <property name="remark" type="java.lang.String" not-null="true" >
+            <column name="remark" length="50">
+                <comment>图片发布时间</comment>
+            </column>
+        </property>
+        <property name="delmark" type="java.lang.String" not-null="true" >
+            <column name="delmark" length="50">
+                <comment>图片发布时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

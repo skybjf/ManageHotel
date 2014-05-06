@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	<bean id="loginQuarz"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="checkCookieCronTrigger"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 批量模拟登录 -->
+	<bean id="timeLoginJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref local="timeLoginJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<property name="cronExpression">
+			<value>0 */5 * * * ? </value>
+		</property>
+	</bean>
+	
+	<bean id="timeLoginJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="loginTask" />
+		</property>
+		<property name="targetMethod">
+			<value>timeLoginJob</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 新浪模拟登录 -->
+	<bean id="loginJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref local="loginJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<property name="cronExpression">
+			<value>0 * * * * ? </value>
+		</property>
+	</bean>
+	
+	<bean id="loginJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="loginTask" />
+		</property>
+		<property name="targetMethod">
+			<value>loginJob</value>
+		</property>
+	</bean>
+	
+	
+	<!-- 登录预警 -->
+	<bean id="warningJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref local="warningJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<property name="cronExpression">
+			<value>0 0 * * * ? </value>
+		</property>
+	</bean>
+	
+	<bean id="warningJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="loginTask" />
+		</property>
+		<property name="targetMethod">
+			<value>warningJob</value>
+		</property>
+	</bean>
+	
+	<!-- 新浪微薄页面预警 -->
+	<bean id="checkWeiboJobCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref local="checkWeiboJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<property name="cronExpression">
+			<value>0 0 0 * * ? </value>
+		</property>
+	</bean>
+	
+	<bean id="checkWeiboJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="checkWeiboTask" />
+		</property>
+		<property name="targetMethod">
+			<value>weiboPageCheck</value>
+		</property>
+	</bean>
+	
+	<!--新浪微博checkCookie -->
+	<bean id="checkCookieCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref local="checkCookieJobDetail" />
+		</property>
+		<property name="startDelay">
+			<value>1000</value>
+		</property>
+		<property name="cronExpression">
+			<value>10 0/1 * * * ? </value>
+		</property>
+	</bean>
+	
+	<bean id="checkCookieJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref local="checkCookieTask" />
+		</property>
+		<property name="targetMethod">
+			<value>timeCheckJob</value>
+		</property>
+	</bean>
+	
+	<!-- check task bean -->
+	<bean id="checkCookieTask" class="com.st.cookieCenter.task.CheckTask">
+		<property name="proxyIpDao" ref="proxyIpDao"></property>
+		<property name="cookieUserDao" ref="cookieUserDao"></property>
+	</bean>
+	
+	<bean id="loginTask" class="com.st.cookieCenter.task.LoginTask">
+		<property name="proxyIpDao" ref="proxyIpDao"></property>
+		<property name="cookieUserDao" ref="cookieUserDao"></property>
+	</bean>
+	
+	<bean id="checkWeiboTask" class="com.st.cookieCenter.task.CheckWeiboTask">
+	</bean>
+	
+</beans>

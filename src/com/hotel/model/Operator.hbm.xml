@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hotel.model.Operator" table="operator" catalog="hotel">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="userName" length="50" not-null="true" >
+            </column>
+        </property>
+        <property name="pwd" type="java.lang.String"  >
+            <column name="pwd" length="50" not-null="true">
+            </column>
+        </property>
+        <property name="mail" type="java.lang.String" not-null="true" >
+            <column name="mail" length="50">
+            </column>
+        </property>
+        <property name="userType" type="java.lang.String" not-null="true" >
+            <column name="userType" length="50">
+            </column>
+        </property>
+        <property name="delmark" type="java.lang.String" not-null="true" >
+            <column name="delmark" length="50">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
