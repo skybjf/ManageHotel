@@ -17,7 +17,7 @@
 	<property name="connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
-	<property name="hibernate.show_sql">false</property>
+	<property name="hibernate.show_sql">true</property>
 	<property name="hibernate.hbm2ddl.auto">none</property>
 	<property name="connection.autocommit">true</property>
 	<!-- 最大连接数 -->

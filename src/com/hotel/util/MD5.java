@@ -14,7 +14,7 @@ public class MD5 {
      *            明文
      * @return 32位密文
      */
-    public String encryption(String plainText) {
+    public static String encryption(String plainText) {
         String re_md5 = new String();
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

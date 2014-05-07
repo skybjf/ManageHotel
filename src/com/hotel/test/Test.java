@@ -18,7 +18,7 @@ public class Test {
 		OperatorDao ss = (OperatorDao) con.getBean("operatorDao");
 		Operator opt = new Operator();
 		opt.setId(5);
-		opt.setDelmark("1");
+		opt.setDelMark("1");
 		opt.setMail("213123@qq.com");
 		opt.setPwd("123456");
 		opt.setUserName("bujiangfeng1");
