@@ -2,54 +2,50 @@ package com.hotel.model;
 
 public class RoomInfo {
 
-	private int id;//自增ID
-	private String roomNum;//房间编号
-	private int roomTypeId;//房间类型ID
-	private String state;//房间状态
-	private String roomTel;//房间电话
-	private String remark ;//备注
-	private String delmark;//删除标记
-	public int getId() {
+	private String id;// 房间编号
+	private int roomTypeId;// 房间类型ID
+	private String state;// 房间状态
+	private String bookTime;// 预定时间
+	private String delMark;// 删除标记
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getRoomNum() {
-		return roomNum;
-	}
-	public void setRoomNum(String roomNum) {
-		this.roomNum = roomNum;
-	}
+
 	public int getRoomTypeId() {
 		return roomTypeId;
 	}
+
 	public void setRoomTypeId(int roomTypeId) {
 		this.roomTypeId = roomTypeId;
 	}
+
 	public String getState() {
 		return state;
 	}
+
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getRoomTel() {
-		return roomTel;
+
+	public String getBookTime() {
+		return bookTime;
 	}
-	public void setRoomTel(String roomTel) {
-		this.roomTel = roomTel;
+
+	public void setBookTime(String bookTime) {
+		this.bookTime = bookTime;
 	}
-	public String getRemark() {
-		return remark;
+
+	public String getDelMark() {
+		return delMark;
 	}
-	public void setRemark(String remark) {
-		this.remark = remark;
+
+	public void setDelMark(String delMark) {
+		this.delMark = delMark;
 	}
-	public String getDelmark() {
-		return delmark;
-	}
-	public void setDelmark(String delmark) {
-		this.delmark = delmark;
-	}
-	
+
 }
