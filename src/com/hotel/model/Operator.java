@@ -52,9 +52,8 @@ public class Operator {
 		this.mail = mail;
 	}
 
-	@Override
 	public String toString() {
-		return "from Operator where userName ='" + userName + "'and pwd='" + MD5.encryption(pwd).trim() + "'";
+		return "from Operator where userName ='" + userName + "'and pwd='"+ pwd + "'";
 	}
 
 	public String getDelMark() {

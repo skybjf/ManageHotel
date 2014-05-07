@@ -10,7 +10,7 @@ import com.hotel.dao.BaseDao;
 public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 	private static final Logger log = Logger.getLogger(BaseDaoImp.class);
 
-	public boolean saveObject(Object obj) {
+	public <T> boolean saveObject(T obj) {
 		try {
 			this.getHibernateTemplate().save(obj);
 		} catch (Exception e) {
@@ -20,7 +20,7 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		return true;
 	}
 
-	public boolean delObject(Object obj) {
+	public <T> boolean delObject(T obj) {
 		try {
 			this.getHibernateTemplate().delete(obj);
 		} catch (Exception e) {
@@ -30,7 +30,8 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		return true;
 	}
 
-	public boolean selectObject(Object obj) {
+	@SuppressWarnings("unchecked")
+	public <T> T selectObject(T obj) {
 		List<?> list;
 		try {
 			System.out.println(obj.toString());
@@ -39,15 +40,15 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 			log.debug(sql);
 		} catch (Exception e) {
 			log.error("login Operator error " + obj.toString(), e);
-			return false;
+			return null;
 		}
 		if (list.size() >= 1) {
-			return true;
+			return (T) list.get(0);
 		}
-		return false;
+		return null;
 	}
 
-	public boolean updateObject(Object obj) {
+	public <T> boolean updateObject(T obj) {
 		try {
 			this.getHibernateTemplate().update(obj);
 		} catch (Exception e) {
@@ -55,5 +56,10 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 			return false;
 		}
 		return true;
+	}
+
+	public  List updateObjectByIds(String[] ids) {
+		List list = this.getHibernateTemplate().find(" from Operator where id in ('12','13')");
+		return list;
 	}
 }

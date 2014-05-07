@@ -1,12 +1,16 @@
 package com.hotel.dao;
 
+import java.util.List;
+
 public interface BaseDao {
 
-	public boolean saveObject(Object obj);
+	public <T> boolean saveObject(T obj);
 
-	public boolean delObject(Object obj);
+	public <T> boolean delObject(T obj);
 
-	public boolean selectObject(Object obj);
+	public <T> T selectObject(T obj);
 
-	public boolean updateObject(Object obj);
+	public <T> boolean updateObject(T obj);
+
+	public List<?> updateObjectByIds(String[] ids);
 }

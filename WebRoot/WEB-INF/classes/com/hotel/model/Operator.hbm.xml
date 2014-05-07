@@ -8,22 +8,22 @@
 			<generator class="identity" />
 		</id>
 		<property name="userName" type="java.lang.String">
-			<column name="user_name" length="20" not-null="true">
+			<column name="user_name" length="20" >
 			</column>
 		</property>
 		<property name="pwd" type="java.lang.String">
-			<column name="pwd" length="64" not-null="true">
+			<column name="pwd" length="64" >
 			</column>
 		</property>
-		<property name="mail" type="java.lang.String" not-null="true">
+		<property name="mail" type="java.lang.String" >
 			<column name="mail" length="20">
 			</column>
 		</property>
-		<property name="userType" type="java.lang.String" not-null="true">
+		<property name="userType" type="java.lang.String" >
 			<column name="user_type" length="1">
 			</column>
 		</property>
-		<property name="delMark" type="java.lang.String" not-null="true">
+		<property name="delMark" type="java.lang.String" >
 			<column name="delmark" length="1">
 			</column>
 		</property>
