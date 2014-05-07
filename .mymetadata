@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="ManageHotel"
+  name="Managehotel"
   id="myeclipse.1395587739433"
   context-root="/ManageHotel"
   j2ee-spec="5.0"
-  archive="ManageHotel.war">
+  archive="Managehotel.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
