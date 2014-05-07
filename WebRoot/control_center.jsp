@@ -22,20 +22,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container-fluid">
-                        <a class="brand" href="#"></a>
-                        <div class="nav-collapse collapse">
-                            <p class="navbar-text pull-right">
-                                Logged in as <a href="#" class="navbar-link">Username</a>
-                            </p>
-                            <ul class="nav font-16">
-                                <li class="active"><a href="#">主页</a></li>
-                                <li><a href="#about">客房设施</a></li>
-                                <li><a href="#contact">美食展示</a></li>
-                                <li><a href="#contact">信息中心</a></li>
-                                <li><a href="#contact">管理中心</a></li>
-                                <li><a href="#contact">酒店管理</a></li>
-                                <li><a href="#contact">客户评价</a></li>
-                            </ul>
+                        <a class="brand" href="index.jsp"></a>
+                            <div class="nav-collapse collapse">
+                                <p class="navbar-text pull-right">
+                                    Logged in as <a href="#" class="navbar-link">Username</a>
+                                </p>
+                                <ul class="nav font-16">
+                                    <li class="active"><a href="#">主页</a></li>
+                                    <li><a href="facility.jsp">客房设施</a></li>
+                                    <li><a href="food.jsp">美食展示</a></li>
+                                    <li><a href="infomation_center.jsp">信息中心</a></li>
+                                    <li><a href="control_center.jsp">管理中心</a></li>
+                                    <li><a href="hotel_control.jsp">酒店管理</a></li>
+                                    <li><a href="customer_reviews.jsp">客户评价</a></li>
+                                </ul>
                         </div><!--/.nav-collapse -->
                     </div>
                 </div>

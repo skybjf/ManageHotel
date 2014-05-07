@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="navbar navbar-inverse navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container-fluid">
-                            <a class="brand" href="#"></a>
+                            <a class="brand" href="index.jsp"></a>
                             <div class="nav-collapse collapse">
                                 <p class="navbar-text pull-right">
                                     Logged in as <a href="#" class="navbar-link">Username</a>
@@ -32,8 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <li><a href="food.jsp">美食展示</a></li>
                                     <li><a href="infomation_center.jsp">信息中心</a></li>
                                     <li><a href="control_center.jsp">管理中心</a></li>
-                                    <li><a href="#contact">酒店管理</a></li>
-                                    <li><a href="#contact">客户评价</a></li>
+                                    <li><a href="hotel_control.jsp">酒店管理</a></li>
+                                    <li><a href="customer_reviews.jsp">客户评价</a></li>
                                 </ul>
                             </div><!--/.nav-collapse -->
                         </div>
