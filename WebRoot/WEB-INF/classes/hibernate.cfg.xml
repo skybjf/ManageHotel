@@ -17,18 +17,17 @@
 	<property name="connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
-	<property name="hibernate.show_sql">true</property>
 	<property name="hibernate.hbm2ddl.auto">none</property>
 	<property name="connection.autocommit">true</property>
 	<!-- 最大连接数 -->
 	<!-- <property name="c3p0.max_size">1500</property> -->
 	<!-- 最小连接数 -->
 	<!-- <property name="c3p0.min_size">20</property>
-	<property name="hibernate.c3p0.timeout">5000</property>
-	<property name="c3p0.max_statements">1000</property>
-	<property name="hibernate.c3p0.acquire_increment">2</property>
-	<property name="c3p0.validate">true</property>
-	<property name="c3p0.idle_test_period">30000</property> -->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<property name="c3p0.max_statements">1000</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="c3p0.validate">true</property>
+		<property name="c3p0.idle_test_period">30000</property> -->
 	<!-- 2013-09-04 
 		<property name="jdbc.fetch_size">50</property>
 	-->
@@ -39,6 +38,8 @@
 	<property name="connection.is-connection-validation-required">
 		true
 	</property>
+	<property name="format_sql">true</property>
+	<property name="hibernate.show_sql">true</property>
 	<mapping resource="com/hotel/model/Operator.hbm.xml" />
 	<mapping resource="com/hotel/model/RoomInfo.hbm.xml" />
 	<mapping resource="com/hotel/model/RoomType.hbm.xml" />

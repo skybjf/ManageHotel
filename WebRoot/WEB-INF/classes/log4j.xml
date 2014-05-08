@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="threshold" value="debug" />
+		<param name="Encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="hotel-debugFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="threshold" value="debug" />
+		<param name="File" value="log/hotel-debug.log" />
+		<param name="MaxFileSize" value="1024mb" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+	<appender name="hotel-errorFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="threshold" value="error" />
+		<param name="File" value="log/hotel-error.log" />
+		<param name="MaxFileSize" value="1024mb" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 注意： 最好指定threshold属性的调试级别，那么反引用了该appender的日志，至少会输出该级别的日志 -->
+	<appender name="hotel-infoFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="threshold" value="info" />
+		<param name="File" value="log/hotel-info.log" />
+		<param name="MaxFileSize" value="1024mb" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="hotel-warnFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="threshold" value="warn" />
+		<param name="File" value="log/hotel-warn.log" />
+		<param name="MaxFileSize" value="1024mb" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="errorFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="threshold" value="error" />
+		<param name="File" value="log/error.log" />
+		<param name="MaxFileSize" value="1024mb" />
+		<param name="Encoding" value="UTF-8" />
+		<param name="maxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d (%-4r ms) %-5p [%t] %c %x: %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- com.st包的信息，会输出四种日志，并且比debug级别高的日志，也都会输出到debug日志文件中。 也就是说：如果设定了多种级别，那么高级别日志，会输出到低级别日志文件中。 -->
+	<logger name="com.hotel" additivity="false">
+		<appender-ref ref="hotel-debugFile" />
+		<appender-ref ref="hotel-errorFile" />
+		<appender-ref ref="hotel-infoFile" />
+		<appender-ref ref="hotel-warnFile" />
+		<!-- <appender-ref ref="console" /> -->
+	</logger>
+
+
+	<!-- org.springframework包的信息，只会输出info和error级别的日志，不会输出debug日志。 这些日志只输出到这2个文件中，不会按root中指定的那样，将别的级别日志输出出去。 -->
+	<logger name="org.springframework" additivity="false">
+		<appender-ref ref="errorFile" />
+	</logger>
+
+	<logger name="org.apache" additivity="false">
+		<appender-ref ref="errorFile" />
+	</logger>
+
+	<root>
+		<appender-ref ref="hotel-debugFile" />
+		<appender-ref ref="hotel-errorFile" />
+		<appender-ref ref="hotel-infoFile" />
+		<appender-ref ref="hotel-warnFile" />
+		<!-- <appender-ref ref="console" /> -->
+	</root>
+
+</log4j:configuration>

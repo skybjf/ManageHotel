@@ -1,7 +1,7 @@
 package com.hotel.action;
 
-import com.hotel.dao.OperatorDao;
 import com.hotel.model.Operator;
+import com.hotel.service.OperatorService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class OperatorAction extends ActionSupport {
@@ -18,23 +18,25 @@ public class OperatorAction extends ActionSupport {
 	// 验证码
 	private String verifyCode;
 	// 用作用户的相关操作
-	private OperatorDao operatorDao;
+	private OperatorService operatorService;
 
 	// 校验登录
 	public String login() {
-		boolean res = operatorDao.selectObject(operator);
-		System.out.println(operator.toString());
-		System.out.println("res"+res);
-		if (res) {
-			return "login";
+		Operator res = operatorService.selectOperatorById(operator);
+		if (res != null) {
+			return "loginSuccess";
 		}
-
-		return "error";
+		return "loginError";
 	}
 
 	// 注册
-	public boolean register() {
-		return false;
+	public String addOperator() {
+		boolean flag = operatorService.addOperator(operator);
+		if (flag) {
+			return "addSuccess";
+		} else {
+			return "addError";
+		}
 	}
 
 	// 更新
@@ -92,12 +94,12 @@ public class OperatorAction extends ActionSupport {
 		this.verifyCode = verifyCode;
 	}
 
-	public OperatorDao getOperatorDao() {
-		return operatorDao;
+	public OperatorService getOperatorService() {
+		return operatorService;
 	}
 
-	public void setOperatorDao(OperatorDao operatorDao) {
-		this.operatorDao = operatorDao;
+	public void setOperatorService(OperatorService operatorService) {
+		this.operatorService = operatorService;
 	}
 
 }
