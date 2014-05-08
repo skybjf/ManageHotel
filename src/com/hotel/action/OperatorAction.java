@@ -23,18 +23,20 @@ public class OperatorAction extends ActionSupport {
 	// 校验登录
 	public String login() {
 		Operator res = operatorService.selectOperatorById(operator);
-		System.out.println(operator.toString());
-		System.out.println("res" + res);
 		if (res != null) {
-			return "login";
+			return "loginSuccess";
 		}
-
-		return "error";
+		return "loginError";
 	}
 
 	// 注册
-	public boolean register() {
-		return false;
+	public String addOperator() {
+		boolean flag = operatorService.addOperator(operator);
+		if (flag) {
+			return "addSuccess";
+		} else {
+			return "addError";
+		}
 	}
 
 	// 更新

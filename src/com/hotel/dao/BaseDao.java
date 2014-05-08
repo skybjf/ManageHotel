@@ -12,5 +12,6 @@ public interface BaseDao {
 
 	public <T> boolean updateObject(T obj);
 
-	public List<?> updateObjectByIds(String[] ids);
+	//该方法用于依据sql语句进行查询的
+	public List<?> selectObjectByIds(String sql );
 }

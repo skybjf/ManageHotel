@@ -58,8 +58,9 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		return true;
 	}
 
-	public  List updateObjectByIds(String[] ids) {
-		List list = this.getHibernateTemplate().find(" from Operator where id in ('12','13')");
+	//该方法是用于删除或修改之前的准备工作
+	public List<?> selectObjectByIds(String sql) {
+		List<?> list = this.getHibernateTemplate().find(sql);
 		return list;
 	}
 }

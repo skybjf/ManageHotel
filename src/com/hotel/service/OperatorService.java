@@ -8,7 +8,7 @@ public interface OperatorService {
 	boolean addOperator(Operator operator);
 
 	//该方法用于假删除以防止用户误操作
-	boolean updateOperatorIds(String[] ids);
+	boolean updateOptDelMarkByIds(String[] ids);
 
 	Operator selectOperatorById(Operator operator);
 

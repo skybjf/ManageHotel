@@ -19,6 +19,7 @@ public class OperatorServiceImp implements OperatorService {
 		this.operatorDao = operatorDao;
 	}
 
+	// 如果增加管理员需要上传图片，则图片的上传工作在此处处理
 	public boolean addOperator(Operator operator) {
 		operator.setPwd(MD5.encryption(operator.getPwd()));
 		return operatorDao.saveObject(operator);
@@ -38,11 +39,10 @@ public class OperatorServiceImp implements OperatorService {
 	}
 
 	public boolean delOperatorByIds(String[] ids) {
-		return false;
+		return operatorDao.delOperatorByIds(ids);
 	}
 
-	public boolean updateOperatorIds(String[] ids) {
-		operatorDao.updateOperatorByIds(ids);
-		return false;
+	public boolean updateOptDelMarkByIds(String[] ids) {
+		return operatorDao.updateOptDelMarkByIds(ids);
 	}
 }

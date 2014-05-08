@@ -1,6 +1,5 @@
 package com.hotel.model;
 
-import com.hotel.util.MD5;
 
 public class Operator {
 
