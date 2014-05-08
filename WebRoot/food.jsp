@@ -10,6 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script charset="utf-8" type="text/javascript"
 	src="js/jquery-1.10.2.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/controller.js"></script>
+
 <title>美食管理</title>
 <link type="text/css" charset="utf-8" rel="stylesheet"
 	href="css/public.css">
@@ -29,23 +31,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="container-fluid">
 							<a class="brand" href="index.jsp"></a>
 							<div class="nav-collapse collapse">
-								<p class="navbar-text pull-right">
-									Logged in as <a href="#" class="navbar-link">Username</a>
-								</p>
+								<p class="navbar-text pull-right" style="line-height: 50px;">
+                                	<span class="navbar-link "><span class="icon-user icon-vertical icon-white"></span>Username</span>
+                                    <a href="#" class="navbar-link"><span class="icon-remove icon-vertical icon-white"></span>退出</a>
+                                </p>
 								<ul class="nav font-16">
-									<li class="active"><a href="#">主页</a>
+									<li><a href="index.jsp"><span class="icon-home icon-vertical icon-white"></span> 主页</a>
 									</li>
-									<li><a href="facility.jsp">客房设施</a>
+									<li><a href="facility.jsp"><span class="icon-th-large icon-vertical icon-white"></span> 客房设施</a>
 									</li>
-									<li><a href="food.jsp">美食展示</a>
+									<li class="active"><a href="food.jsp"><span class="icon-glass icon-vertical icon-white"></span> 美食展示</a>
 									</li>
-									<li><a href="infomation_center.jsp">信息中心</a>
+									<li><a href="infomation_center.jsp"><span class="icon-envelope icon-vertical icon-white"></span> 信息中心</a>
 									</li>
-									<li><a href="control_center.jsp">管理中心</a>
+									<li><a href="control_center.jsp"><span class="icon-briefcase icon-vertical icon-white"></span> 管理中心</a>
 									</li>
-									<li><a href="hotel_control.jsp">酒店管理</a>
-									</li>
-									<li><a href="customer_reviews.jsp">客户评价</a>
+									<li><a href="hotel_control.jsp"><span class="icon-list-alt icon-vertical icon-white"></span> 酒店管理</a>
 									</li>
 								</ul>
 							</div>
@@ -58,8 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!--left-->
 						<div class="span3">
 							<div class="well sidebar-nav">
-								<ul class="nav nav-list">
-									<li class="nav-header">美食展示</li>
+								<ul id="left" class="nav nav-list">
+									<li class="nav-header"><span class="icon-glass icon-vertical"></span>美食展示</li>
 									<li><a href="#">春</a>
 									</li>
 									<li><a href="#">夏</a>

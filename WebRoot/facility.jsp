@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'Facility.jsp' starting page</title>
+<title>客房设施</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -27,6 +27,10 @@
 	href="css/bootstrap-responsive.min.css">
 <link type="text/css" charset="utf-8" rel="stylesheet"
 	href="css/index.css">
+<script charset="utf-8" type="text/javascript"
+	src="js/jquery-1.10.2.min.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/controller.js"></script>
 
 </head>
 
@@ -39,24 +43,20 @@
 						<div class="container-fluid">
 							<a class="brand" href="index.jsp"></a>
 							<div class="nav-collapse collapse">
-								<p class="navbar-text pull-right">
-									Logged in as <a href="#" class="navbar-link">Username</a>
+								<p class="navbar-text pull-right" style="line-height: 50px;">
+									<span class="navbar-link "><span
+										class="icon-user icon-vertical icon-white"></span>Username</span> <a
+										href="#" class="navbar-link"><span
+										class="icon-remove icon-vertical icon-white"></span>退出</a>
 								</p>
 								<ul class="nav font-16">
-									<li class="active"><a href="#">主页</a>
+									<li><a href="index.jsp"><span class="icon-home icon-vertical icon-white"></span> 主页</a></li>
+									<li class="active"><a href="facility.jsp"><span class="icon-th-large icon-vertical icon-white"></span> 客房设施</a></li>
+									<li><a href="food.jsp"><span class="icon-glass icon-vertical icon-white"></span> 美食展示</a></li>
+									<li><a href="infomation_center.jsp"><span class="icon-envelope icon-vertical icon-white"></span> 信息中心</a></li>
+									<li><a href="control_center.jsp"><span class="icon-briefcase icon-vertical icon-white"></span> 管理中心</a>
 									</li>
-									<li><a href="facility.jsp">客房设施</a>
-									</li>
-									<li><a href="food.jsp">美食展示</a>
-									</li>
-									<li><a href="infomation_center.jsp">信息中心</a>
-									</li>
-									<li><a href="control_center.jsp">管理中心</a>
-									</li>
-									<li><a href="hotel_control.jsp">酒店管理</a>
-									</li>
-									<li><a href="customer_reviews.jsp">客户评价</a>
-									</li>
+									<li><a href="hotel_control.jsp"><span class="icon-list-alt icon-vertical icon-white"></span> 酒店管理</a></li>
 								</ul>
 							</div>
 							<!--/.nav-collapse -->
@@ -68,18 +68,13 @@
 						<!--left-->
 						<div class="span3">
 							<div class="well sidebar-nav">
-								<ul class="nav nav-list">
-									<li class="nav-header">客房设施</li>
-									<li><a href="#">豪华商务套房</a>
-									</li>
-									<li><a href="#">高级商务套房</a>
-									</li>
-									<li><a href="#">豪华双人房</a>
-									</li>
-									<li><a href="#">豪华大床房</a>
-									</li>
-									<li class="active"><a href="#">单人房</a>
-									</li>
+								<ul id="left" class="nav nav-list">
+									<li class="nav-header"><span class="icon-th-large icon-vertical"></span> 客房设施</li>
+									<li><a>豪华商务套房</a></li>
+									<li><a>高级商务套房</a></li>
+									<li><a>豪华双人房</a></li>
+									<li><a>豪华大床房</a></li>
+									<li><a>单人房</a></li>
 								</ul>
 							</div>
 							<!--/.well -->
@@ -100,7 +95,8 @@
 												class="f_l" value="床 "> <input class="f_l"
 												value="床 "> <input class="f_l" value="床 ">
 										</div>
-									</div></li>
+									</div>
+								</li>
 							</ul>
 						</div>
 						<!--/span-->
@@ -112,9 +108,6 @@
 		</div>
 	</div>
 
-	<script charset="utf-8" type="text/javascript"
-		src="js/jquery-1.10.2.min.js"></script>
-	<script charset="utf-8" type="text/javascript"
-		src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
