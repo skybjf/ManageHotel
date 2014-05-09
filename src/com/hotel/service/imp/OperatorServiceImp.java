@@ -1,8 +1,8 @@
 package com.hotel.service.imp;
 
-import java.util.List;
-
+import com.hotel.base.PageObject;
 import com.hotel.dao.OperatorDao;
+import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
 import com.hotel.util.MD5;
@@ -25,8 +25,11 @@ public class OperatorServiceImp implements OperatorService {
 		return operatorDao.saveObject(operator);
 	}
 
-	public Operator selectOperatorById(Operator operator) {
-		operator.setPwd(MD5.encryption(operator.getPwd()));
+	public Operator selectOperator(Operator operator) {
+		if (operator.getPwd() != null) {
+			operator.setPwd(MD5.encryption(operator.getPwd()));
+			return null;
+		}
 		return operatorDao.selectObject(operator);
 	}
 
@@ -34,8 +37,17 @@ public class OperatorServiceImp implements OperatorService {
 		return false;
 	}
 
-	public List<Operator> listOperator(Operator operator) {
-		return null;
+	public PageObject listOperator(PageObject operator, String name, String id) {
+		StringBuilder sb = new StringBuilder("from ");
+		sb.append(TablesEnum.OPERATOR.getTableName()).append(" where 1=1");
+		if (name != null && !name.equals("")) {
+			sb.append(" and userName like '%").append(name).append("%'");
+		}
+
+		if (id != null && !id.equals("")) {
+			sb.append(" and id like '%").append(id).append("%'");
+		}
+		return operatorDao.listOperator(sb.toString(), operator);
 	}
 
 	public boolean delOperatorByIds(String[] ids) {
@@ -45,4 +57,5 @@ public class OperatorServiceImp implements OperatorService {
 	public boolean updateOptDelMarkByIds(String[] ids) {
 		return operatorDao.updateOptDelMarkByIds(ids);
 	}
+
 }

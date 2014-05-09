@@ -1,5 +1,6 @@
 package com.hotel.action;
 
+import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,6 +10,8 @@ public class OperatorAction extends ActionSupport {
 	private static final long serialVersionUID = -5365916222957141079L;
 	// 管理員
 	private Operator operator;
+
+	private PageObject pageOperator;
 	//
 	private String verify;
 	//
@@ -22,8 +25,9 @@ public class OperatorAction extends ActionSupport {
 
 	// 校验登录
 	public String login() {
-		Operator res = operatorService.selectOperatorById(operator);
-		if (res != null) {
+		operator = operatorService.selectOperator(operator);
+		if (operator != null) {
+			System.out.println("login sessucess");
 			return "loginSuccess";
 		}
 		return "loginError";
@@ -37,6 +41,13 @@ public class OperatorAction extends ActionSupport {
 		} else {
 			return "addError";
 		}
+	}
+
+	public String listOperator() {
+
+		this.pageOperator = operatorService.listOperator(new PageObject(), "", "");
+		System.out.println(pageOperator.getList().size());
+		return "list";
 	}
 
 	// 更新
@@ -100,6 +111,14 @@ public class OperatorAction extends ActionSupport {
 
 	public void setOperatorService(OperatorService operatorService) {
 		this.operatorService = operatorService;
+	}
+
+	public PageObject getPageOperator() {
+		return pageOperator;
+	}
+
+	public void setPageOperator(PageObject pageOperator) {
+		this.pageOperator = pageOperator;
 	}
 
 }

@@ -3,6 +3,7 @@ package com.hotel.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
 
@@ -27,7 +28,7 @@ public class Test {
 		// ss.addOperator(opt);
 		String[] aa = new String[1];
 		aa[0] = "5";
-		ss.delOperatorByIds(aa);
+		ss.listOperator(new PageObject(), "", "");
 		// [{"key1":"value","key2":"value"},
 		// {"key1":"value","key2":"value"}]
 	}

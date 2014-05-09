@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.hotel.base.PageObject;
 import com.hotel.dao.OperatorDao;
 import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
@@ -41,5 +42,10 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 			return false;
 		}
 		return true;
+	}
+
+	public PageObject listOperator(String hql, PageObject operator) {
+
+		return this.listObject(hql, operator);
 	}
 }

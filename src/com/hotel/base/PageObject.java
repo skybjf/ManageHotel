@@ -5,58 +5,68 @@ import java.util.List;
 
 public class PageObject {
 
-	private int firstPage = 1;
-	private int lastPage;
-	private int pageSize = 20;
-	private int previousPage;
-	private int nextPage;
-	private int nowPage;
+	private Integer firstPage = 1;
+	private Integer lastPage;
+	private Integer pageSize = 20;
+	private Integer rowCount;
+	private Integer previousPage;
+	private Integer nextPage;
+	private Integer nowPage;
+	private List<?> list = new ArrayList();
 
-	public int getFirstPage() {
+	public Integer getFirstPage() {
 		return firstPage;
 	}
 
-	public void setFirstPage(int firstPage) {
+	public void setFirstPage(Integer firstPage) {
 		this.firstPage = firstPage;
 	}
 
-	public int getLastPage() {
+	public Integer getLastPage() {
 		return lastPage;
 	}
 
-	public void setLastPage(int lastPage) {
+	public void setLastPage(Integer lastPage) {
 		this.lastPage = lastPage;
 	}
 
-	public int getPageSize() {
+	public Integer getPageSize() {
 		return pageSize;
 	}
 
-	public void setPageSize(int pageSize) {
+	public void setPageSize(Integer pageSize) {
 		this.pageSize = pageSize;
 	}
 
-	public int getPreviousPage() {
+	public Integer getRowCount() {
+		return rowCount;
+	}
+
+	public void setRowCount(Integer rowCount) {
+		this.rowCount = rowCount;
+	}
+
+	public Integer getPreviousPage() {
 		return previousPage;
 	}
 
-	public void setPreviousPage(int previousPage) {
+	public void setPreviousPage(Integer previousPage) {
 		this.previousPage = previousPage;
 	}
 
-	public int getNextPage() {
+	public Integer getNextPage() {
 		return nextPage;
 	}
 
-	public void setNextPage(int nextPage) {
+	public void setNextPage(Integer nextPage) {
 		this.nextPage = nextPage;
 	}
 
-	public int getNowPage() {
+	public Integer getNowPage() {
 		return nowPage;
 	}
 
-	public void setNowPage(int nowPage) {
+	public void setNowPage(Integer nowPage) {
 		this.nowPage = nowPage;
 	}
 
@@ -67,7 +77,5 @@ public class PageObject {
 	public void setList(List<?> list) {
 		this.list = list;
 	}
-
-	private List<?> list = new ArrayList();
 
 }
