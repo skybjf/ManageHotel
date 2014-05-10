@@ -21,35 +21,24 @@
 					<a class="brand" href="#"></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav font-16">
-							<li class="active"><a href="#">主页</a>
-							</li>
-							<li><a href="#about">客房设施</a>
-							</li>
-							<li><a href="#contact">美食展示</a>
-							</li>
-							<li><a href="#contact">信息中心</a>
-							</li>
-							<li><a href="#contact">管理中心</a>
-							</li>
-							<li><a href="#contact">酒店管理</a>
-							</li>
+							<li class="active"><a href="#">主页</a></li>
+							<li><a href="#about">客房设施</a></li>
+							<li><a href="#contact">美食展示</a></li>
+							<li><a href="#contact">信息中心</a></li>
+							<li><a href="#contact">管理中心</a></li>
+							<li><a href="#contact">酒店管理</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Dropdown <b class="caret"></b>
-							</a>
+								data-toggle="dropdown">Dropdown <b class="caret"></b> </a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Action</a>
-									</li>
-									<li><a href="#">Another action</a>
-									</li>
-									<li><a href="#">Something else here</a>
-									</li>
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
 									<li class="divider"></li>
 									<li class="nav-header">Nav header</li>
-									<li><a href="#">Separated link</a>
-									</li>
-									<li><a href="#">One more separated link</a>
-									</li>
-								</ul></li>
+									<li><a href="#">Separated link</a></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -106,7 +95,7 @@
 	<!--</div>-->
 	<div id="login" class="modal hide fade logindiv" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<form class="form-signin" action="userAction!login" method="post">
+		<form class="form-signin" action="operatorAction!login" method="post">
 			<h2 class="form-signin-heading">请登录</h2>
 			<input type="text" class="input-block-level" placeholder="用户名"
 				name="operator.userName"> <input type="password"

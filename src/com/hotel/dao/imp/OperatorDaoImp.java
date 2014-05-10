@@ -8,14 +8,14 @@ import com.hotel.base.PageObject;
 import com.hotel.dao.OperatorDao;
 import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
-import com.hotel.util.SqlStringUtils;
+import com.hotel.util.HotelUtils;
 
 public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 	private static final Logger log = Logger.getLogger(OperatorDaoImp.class);
 
 	// 该删除为假删除，即将delMark的值进行改变
 	public boolean updateOptDelMarkByIds(String[] ids) {
-		String sql = "from " + TablesEnum.OPERATOR.getTableName() + SqlStringUtils.spliceToSqlString(ids);
+		String sql = "from " + TablesEnum.OPERATOR.getTableName() + HotelUtils.spliceToSqlString(ids);
 		List<?> list = this.selectObjectByIds(sql);
 		try {
 			for (Object obj : list) {
@@ -30,7 +30,7 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 	}
 
 	public boolean delOperatorByIds(String[] ids) {
-		String sql = "from " + TablesEnum.OPERATOR.getTableName() + SqlStringUtils.spliceToSqlString(ids);
+		String sql = "from " + TablesEnum.OPERATOR.getTableName() + HotelUtils.spliceToSqlString(ids);
 		List<?> list = this.selectObjectByIds(sql);
 		try {
 			for (Object obj : list) {
@@ -46,6 +46,7 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 
 	public PageObject listOperator(String hql, PageObject operator) {
 
-		return this.listObject(hql, operator);
+		return super.listObject(hql, operator);
 	}
+
 }

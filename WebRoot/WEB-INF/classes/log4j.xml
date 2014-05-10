@@ -72,7 +72,7 @@
 		<appender-ref ref="hotel-errorFile" />
 		<appender-ref ref="hotel-infoFile" />
 		<appender-ref ref="hotel-warnFile" />
-		<!-- <appender-ref ref="console" /> -->
+		<appender-ref ref="console" />
 	</logger>
 
 
@@ -90,7 +90,7 @@
 		<appender-ref ref="hotel-errorFile" />
 		<appender-ref ref="hotel-infoFile" />
 		<appender-ref ref="hotel-warnFile" />
-		<!-- <appender-ref ref="console" /> -->
+		<appender-ref ref="console" />
 	</root>
 
 </log4j:configuration>

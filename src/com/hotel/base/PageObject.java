@@ -12,6 +12,7 @@ public class PageObject {
 	private Integer previousPage;
 	private Integer nextPage;
 	private Integer nowPage;
+	@SuppressWarnings("rawtypes")
 	private List<?> list = new ArrayList();
 
 	public Integer getFirstPage() {

@@ -38,4 +38,8 @@ public class News {
 		this.content = content;
 	}
 
+	public String toLogString() {
+		return "News [id=" + id + ", title=" + title + ", published=" + published + ", content=" + content + "]";
+	}
+
 }

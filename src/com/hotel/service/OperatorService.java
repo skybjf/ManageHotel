@@ -17,4 +17,5 @@ public interface OperatorService {
 
 	// 该方法用于删除，不论是批量删除还是单个删除
 	boolean delOperatorByIds(String[] ids);
+
 }

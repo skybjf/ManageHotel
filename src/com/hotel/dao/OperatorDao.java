@@ -10,4 +10,5 @@ public interface OperatorDao extends BaseDao {
 
 	public PageObject listOperator(String hql, PageObject operator);
 
+
 }

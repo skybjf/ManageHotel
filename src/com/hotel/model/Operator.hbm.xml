@@ -23,6 +23,10 @@
 			<column name="user_type" length="1">
 			</column>
 		</property>
+	<property name="loginTime" type="java.lang.String">
+		<column name="login_time" length="20">
+		</column>
+	</property>
 		<property name="delMark" type="java.lang.String" >
 			<column name="delmark" length="1">
 			</column>

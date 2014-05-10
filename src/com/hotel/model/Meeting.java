@@ -2,9 +2,9 @@ package com.hotel.model;
 
 public class Meeting {
 
-	private Integer id; 		// 自增ID
-	private String theme; 		// 会议主题
-	private String time; 		// 会议时间
+	private Integer id; // 自增ID
+	private String theme; // 会议主题
+	private String time; // 会议时间
 	private String description; // 会议简介
 
 	public Integer getId() {
@@ -37,5 +37,9 @@ public class Meeting {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String toLogString() {
+		return "Meeting [id=" + id + ", theme=" + theme + ", time=" + time + ", description=" + description + "]";
 	}
 }

@@ -75,4 +75,9 @@ public class RoomType {
 		this.delMark = delMark;
 	}
 
+	public String toLogString() {
+		return "RoomType [id=" + id + ", name=" + name + ", type=" + type + ", price=" + price + ", discount=" + discount + ", description=" + description
+				+ ", picUrl=" + picUrl + "]";
+	}
+
 }

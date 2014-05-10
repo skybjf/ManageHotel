@@ -5,7 +5,7 @@ import com.hotel.dao.OperatorDao;
 import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
-import com.hotel.util.MD5;
+import com.hotel.util.MD5Util;
 
 public class OperatorServiceImp implements OperatorService {
 
@@ -21,16 +21,17 @@ public class OperatorServiceImp implements OperatorService {
 
 	// 如果增加管理员需要上传图片，则图片的上传工作在此处处理
 	public boolean addOperator(Operator operator) {
-		operator.setPwd(MD5.encryption(operator.getPwd()));
+		operator.setPwd(MD5Util.encryption(operator.getPwd()));
 		return operatorDao.saveObject(operator);
 	}
 
 	public Operator selectOperator(Operator operator) {
 		if (operator.getPwd() != null) {
-			operator.setPwd(MD5.encryption(operator.getPwd()));
+			operator.setPwd(MD5Util.encryption(operator.getPwd()));
+			return operatorDao.selectObject(operator);
+		} else {
 			return null;
 		}
-		return operatorDao.selectObject(operator);
 	}
 
 	public boolean updateOperator(Operator operator) {
