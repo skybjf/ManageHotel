@@ -24,9 +24,9 @@
 	href="css/index.css">
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid control_center">
 		<div class="row-fluid">
-			<form class="form-horizontal">
+			<div class="form-horizontal">
 				<div class="navbar navbar-inverse navbar-fixed-top">
 					<div class="navbar-inner">
 						<div class="container-fluid">
@@ -57,6 +57,7 @@
 						</div>
 					</div>
 				</div>
+	<!-- 	主体  			-->
 				<div class="container-fluid">
 					<div class="row-fluid mar-top">
 						<!--left-->
@@ -64,7 +65,7 @@
 							<div class="well sidebar-nav">
 								<ul id="left" class="nav nav-list">
 									<li class="nav-header"><span class="icon-briefcase icon-vertical"></span> 管理中心</li>
-									<li><a href="#">管理员管理</a>
+									<li><a href="#">管理员中心</a>
 									</li>
 									<li><a href="#">客房预订</a>
 									</li>
@@ -77,67 +78,17 @@
 							</div>
 							<!--/.well -->
 						</div>
-						<!--/span-->
+
 						<!--right-->
-						<div class="span9 row-fluid ">
-							<ul class="well clearfix each_food">
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-								<li class=""><img src="img" class="img-polaroid" />
-									<div>
-										<strong>name</strong>
-									</div>
-									<div>
-										<b>price</b>
-									</div></li>
-							</ul>
-						</div>
+						<div class="span9 row-fluid">
+							<%-- <jsp:include page="control_center_right.jsp"></jsp:include> --%>
+							<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
+						</div>				
 						<!--/span-->
 					</div>
 					<!--/row-->
-					<hr>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </body>
