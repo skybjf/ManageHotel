@@ -3,13 +3,14 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<%@taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'MyJsp.jsp' starting page</title>
+<title>My JSP 'listOperator.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +24,15 @@
 </head>
 
 <body>
-	<a href=operatorAction!listOperator>管理管理员</a>
+	显示管理员界面
+	<s:iterator value="pageOperator.list" status="operator">
+		userName= ${userName} 
+		<a href=operatorAction!delOperator?operator.id=${id}>删除</a>
+		<a href=operatorAction!listOperator>查看</a>
+		<br />
+	</s:iterator>
+	<s:debug></s:debug>
+
+
 </body>
 </html>

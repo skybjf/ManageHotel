@@ -2,13 +2,13 @@ package com.hotel.model;
 
 public class Food {
 
-	private Integer id;			//自增ID
-	private String name;		//该菜系的名字
-	private float price;		//该菜肴的价格
-	private String season;		//该菜肴的季节
-	private Integer discount;	//该菜肴的折扣
-	private String picUrl;		//展示图片路径
-	private String delMark;		//删除标记
+	private Integer id; // 自增ID
+	private String name; // 该菜系的名字
+	private float price; // 该菜肴的价格
+	private String season; // 该菜肴的季节
+	private Integer discount; // 该菜肴的折扣
+	private String picUrl; // 展示图片路径
+	private String delMark; // 删除标记
 
 	public Integer getId() {
 		return id;
@@ -64,5 +64,16 @@ public class Food {
 
 	public void setDelMark(String delMark) {
 		this.delMark = delMark;
+	}
+
+	@Override
+	public String toString() {
+		return "Food [id=" + id + ", name=" + name + ", price=" + price + ", season=" + season + ", discount=" + discount + ", picUrl=" + picUrl + ", delMark="
+				+ delMark + "]";
+	}
+
+	public String toLogString() {
+		return "Food [id=" + id + ", name=" + name + ", price=" + price + ", season=" + season + ", discount=" + discount + ", picUrl=" + picUrl + ", delMark="
+				+ delMark + "]";
 	}
 }

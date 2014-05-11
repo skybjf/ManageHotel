@@ -48,4 +48,8 @@ public class RoomInfo {
 		this.delMark = delMark;
 	}
 
+	public String toLogString() {
+		return "RoomInfo [id=" + id + ", roomTypeId=" + roomTypeId + ", state=" + state + ", bookTime=" + bookTime + ", delMark=" + delMark + "]";
+	}
+
 }
