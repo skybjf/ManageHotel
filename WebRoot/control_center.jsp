@@ -82,7 +82,7 @@
 						<!--right-->
 						<div class="span9 row-fluid">
 							<%-- <jsp:include page="control_center_right.jsp"></jsp:include> --%>
-							<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
+							<jsp:include page="control_center_checkin.jsp"></jsp:include>
 						</div>				
 						<!--/span-->
 					</div>
