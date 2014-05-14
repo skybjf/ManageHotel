@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
+import com.hotel.util.HotelConfig;
 
 public class Test {
 
@@ -28,8 +29,11 @@ public class Test {
 		// ss.addOperator(opt);
 		String[] aa = new String[1];
 		aa[0] = "5";
-		ss.listOperator(new PageObject(), "", "");
+//		ss.listOperator(new PageObject(), "", "");
+//		PageObject as =new PageObject();
+//		System.out.println(as.getClass().getSimpleName());
 		// [{"key1":"value","key2":"value"},
 		// {"key1":"value","key2":"value"}]
+		System.out.println(HotelConfig._conf.getProperty("food.image.path"));
 	}
 }

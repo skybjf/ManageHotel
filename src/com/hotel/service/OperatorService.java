@@ -9,7 +9,7 @@ public interface OperatorService {
 	// 该方法用于假删除以防止用户误操作
 	boolean updateOptDelMarkByIds(String[] ids);
 
-	Operator selectOperator(Operator operator);
+	Operator login(Operator operator);
 
 	boolean updateOperator(Operator operator);
 
@@ -17,5 +17,7 @@ public interface OperatorService {
 
 	// 该方法用于删除，不论是批量删除还是单个删除
 	boolean delOperatorByIds(String[] ids);
+
+	Operator selectOperator(Operator operator);
 
 }

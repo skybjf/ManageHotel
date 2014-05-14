@@ -1,10 +1,17 @@
 package com.hotel.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.aspectj.util.FileUtil;
+
+import common.Logger;
+
 public class HotelUtils {
+	private final static Logger logger = Logger.getLogger(HotelUtils.class);
 
 	public final static int SECOND = 1000;
 
@@ -24,6 +31,10 @@ public class HotelUtils {
 
 	public static String getCurrentTime() {
 		return yearMonthDayHourMinuteSecond.format(new Date());
+	}
+
+	public static String getCurrentTimeMillis() {
+		return System.currentTimeMillis() + "";
 	}
 
 	public static Calendar getCalendar() {
@@ -47,6 +58,20 @@ public class HotelUtils {
 		}
 		sql = sb.substring(0, sb.length() - 2);
 		return sql + ")";
+	}
+
+	public static String upLoadFile(File file, String fileName, String upPath) {
+		String[] imageContentType = fileName.split("\\.");
+		String newFileName = getCurrentTimeMillis() + "." + imageContentType[1];
+		String filePath = upPath + "\\" + newFileName;
+		String sevePath = HotelConfig.getValue("food.image.path") + newFileName;
+		try {
+			FileUtil.copyFile(file, new File(filePath));
+		} catch (IOException e) {
+			logger.error("upload error", e);
+			return null;
+		}
+		return sevePath;
 	}
 
 	public static void main(String[] args) {

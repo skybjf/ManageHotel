@@ -17,7 +17,7 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		try {
 			this.getHibernateTemplate().save(obj);
 		} catch (Exception e) {
-			log.error("save Operator error [Operator]" + obj.toString(), e);
+			log.error("save [" + obj.getClass().getSimpleName() + "] error :" + obj.toString(), e);
 			return false;
 		}
 		return true;
@@ -27,7 +27,7 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		try {
 			this.getHibernateTemplate().delete(obj);
 		} catch (Exception e) {
-			log.error("del Operator error [Operator]" + obj.toString(), e);
+			log.error("del [" + obj.getClass().getSimpleName() + "] error :" + obj.toString(), e);
 			return false;
 		}
 		return true;
@@ -42,7 +42,7 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 			list = this.getHibernateTemplate().find(sql);
 			log.debug(sql);
 		} catch (Exception e) {
-			log.error("login Operator error " + obj.toString(), e);
+			log.error("select [" + obj.getClass().getSimpleName() + "] error :" + obj.toString(), e);
 			return null;
 		}
 		if (list.size() >= 1) {
@@ -55,7 +55,7 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 		try {
 			this.getHibernateTemplate().update(obj);
 		} catch (Exception e) {
-			log.error("update Operator error [Operator]" + obj.toString(), e);
+			log.error("update [" + obj.getClass().getSimpleName() + "] error :" + obj.toString(), e);
 			return false;
 		}
 		return true;
