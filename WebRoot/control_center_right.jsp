@@ -26,7 +26,7 @@
 
 <body>
 	<div class="row-fluid">
-		<div class="span6 well right_div">
+		<div class="span6 well right_div ">
 			<h4>管理员管理</h4>
 			<div class="row-fluid">
 				<div class="span6">
@@ -36,21 +36,48 @@
 				</div>
 				<div class="span6 admin">
 					<div>
-						您好管理员<b>name</b>
+						您好管理员<b class="red">name</b>
 					</div>
 					<div>上次登录时间为：</div>
 					<div>1990-01-03 15:30</div>
 					<div>
-						<a class="btn btn-info" >进入管理员中心</a>
+						<a class="btn btn-info">进入管理员中心</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="span6 well right_div"></div>
+		<div class="span6 well right_div ">
+			<h4>客房预定</h4>
+			<ul class="book">
+				<li>豪华商务套房 剩余 <b class="red">20</b>间</li>
+				<li>高级商务套房 剩余 <b class="red">20</b>间</li>
+				<li>豪华双人房 剩余 <b class="red">20</b>间</li>
+				<li>豪华大床房 剩余 <b class="red">20</b>间</li>
+				<li>单人房 剩余 <b class="red">20</b>间</li>
+			</ul>
+		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="span6 well right_div"></div>
-		<div class="span6 well right_div"></div>
+		<div class="span6 well right_div">
+			<h4>客房登记</h4>
+			<ul class="book">
+				<li>豪华商务套房 已入住 <b class="red">20</b>间</li>
+				<li>高级商务套房 已入住 <b class="red">20</b>间</li>
+				<li>豪华双人房 已入住 <b class="red">20</b>间</li>
+				<li>豪华大床房 已入住 <b class="red">20</b>间</li>
+				<li>单人房 已入住 <b class="red">20</b>间</li>
+			</ul>
+		</div>
+		<div class="span6 well right_div">
+			<h4>客房结账</h4>
+			<ul class="book">
+				<li>豪华商务套房 空闲 <b class="red">20</b>间</li>
+				<li>高级商务套房 空闲 <b class="red">20</b>间</li>
+				<li>豪华双人房 空闲 <b class="red">20</b>间</li>
+				<li>豪华大床房 空闲 <b class="red">20</b>间</li>
+				<li>单人房 空闲 <b class="red">20</b>间</li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>

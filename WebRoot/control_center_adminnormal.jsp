@@ -20,7 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <script type="text/javascript">
 $(window).ready(function(){
-	showForm($("#showForm"),$(".hide"));
+	showForm($("#showForm"),$("#adminnormalchange"));
+	showForm($("#adminnormalreset"),$("#adminnormalchange"));
 });
 </script>
 </head>
@@ -42,7 +43,7 @@ $(window).ready(function(){
 					<span class="f_l" style="color:red;">1997-01-05 23:32</span>
 					<a id="showForm" class="btn">修改信息</a>
 				</div>
-				<form class="hide form-horizontal " action="" >
+				<form id="adminnormalchange" class="hide form-horizontal " action="" >
 					<div class="control-group">
 						<label class="control-label" for="inputEmail">邮箱地址</label>
 						<div class="controls">
@@ -70,13 +71,13 @@ $(window).ready(function(){
 					<div class="control-group">
 						<label class="control-label" for="inputUrl">头像连接</label>
 						<div class="controls">
-							<input type="password" id="inputUrl" placeholder="Avatar">
+							<input type="file" id="inputUrl" placeholder="Avatar">
 						</div>
 					</div>
 					<div class="control-group">
 					<div class="controls">
 						<button type="submit" class="btn btn-info">确定</button>
-						<button type="reset" class="btn btn-info">取消</button>
+						<button id="adminnormalreset" type="reset" class="btn btn-info">取消</button>
 					</div>
 				</div>
 				</form>

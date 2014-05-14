@@ -19,31 +19,13 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" media="screen"
-	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-<!--
-<script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
+	href="css/bootstrap-datetimepicker.min.css">
 
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
-<script type="text/javascript"
-	src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-	
-</script>
-<script type="text/javascript">
-	$('#datetimepicker').datetimepicker({
-		format : 'MM/dd/yyyy hh:mm',
-		language : 'en',
-		pickDate : true,
-		pickTime : true,
-		hourStep : 1,
-		minuteStep : 15,
-		secondStep : 30,
-		inputMask : true
-	});
-</script>
 
 
 </head>
@@ -52,12 +34,6 @@
 	<div class="well">
 		<form class="form-horizontal " action="">
 
-			<div id="datetimepicker" class="input-append date">
-				<input type="text"></input> <span class="add-on"> <i
-					data-time-icon="icon-time" data-date-icon="icon-calendar"></i> </span>
-			</div>
-
-
 			<div class="control-group">
 				<label class="control-label" for="inputName">姓名</label>
 				<div class="controls">
@@ -65,42 +41,79 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputEmail">邮箱地址</label>
+				<label class="control-label" for="inputEmail">手机号</label>
 				<div class="controls">
 					<input type="text" id="inputEmail" placeholder="Email">
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputPassword0">原密码</label>
-				<div class="controls">
-					<input type="password" id="inputPassword0" placeholder="Password">
+				<label class="control-label" for="checkindate">入住日期</label>
+				<div id="checkindate" class="marL20 input-append date">
+					<input id="checkindatevalue" readonly type="text" style="width:180px;"/> <span
+						class="add-on"> <i data-time-icon="icon-time"
+						data-date-icon="icon-calendar"></i> </span>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputPassword1">新密码</label>
-				<div class="controls">
-					<input type="password" id="inputPassword1" placeholder="Password">
+				<label class="control-label" for="checkoutdate">离店日期</label>
+				<div id="checkoutdate" class="marL20 input-append date">
+					<input id="checkoutdatevalue" readonly type="text" style="width:180px;" />
+					<span class="add-on"> <i data-time-icon="icon-time"
+						data-date-icon="icon-calendar"></i> </span>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputPassword2">确认密码</label>
+				<label class="control-label" for="inputPassword2">总价</label>
 				<div class="controls">
-					<input type="password" id="inputPassword2" placeholder="Password">
+					<input type="password" id="inputPassword2" placeholder="">
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputUrl">头像连接</label>
 				<div class="controls">
-					<input type="password" id="inputUrl" placeholder="Avatar">
+					<input type="file" id="inputUrl" placeholder="Avatar">
 				</div>
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<button type="submit" class="btn btn-info">确定</button>
+					<button id="confirmbook" type="submit" class="btn btn-info">确定</button>
 					<button type="reset" class="btn btn-info">取消</button>
 				</div>
 			</div>
 		</form>
 	</div>
+
+	<script type="text/javascript">
+		$('#checkindate').datetimepicker({
+			format : 'yyyy-MM-dd',
+			language : 'zh-CN',
+			pickDate : true,
+			pickTime : false,
+			hourStep : 1,
+			minuteStep : 15,
+			secondStep : 30,
+			inputMask : false
+		});
+		$('#checkoutdate').datetimepicker({
+			format : 'yyyy-MM-dd', /*  hh:mm */
+			language : 'zh-CN',
+			pickDate : true,
+			pickTime : false,
+			hourStep : 1,
+			minuteStep : 15,
+			secondStep : 30,
+			inputMask : false
+		});
+		
+		$('#confirmbook').click(function(){
+			alert("1");
+			dateFormateMinus($('#checkindatevalue').val(),$('#checkoutdatevalue').val()); 
+		});
+
+		function dateFormateMinus(early, late) {
+			var result =(new Date(late)-new Date(early))/(24*60*60*1000);
+			alert(result);
+		}
+	</script>
 </body>
 </html>

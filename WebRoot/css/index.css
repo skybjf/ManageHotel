@@ -148,6 +148,6 @@ body{
 .control_center .normal .right_top{margin:10px;}
 .control_center .normal .right_top span{margin:0 20px;line-height:30px;}
 .control_center .adminsuper table tr td{text-align: center;}
-
-
+.control_center .right_div .book{height:200px;overflow:auto;}
+.control_center .right_div .book li{line-height:30px;height:30px;margin-top:10px;}
 
