@@ -13,8 +13,8 @@ public class HotelConfig {
 	public static Properties _conf = new Properties();
 	private static Logger log = Logger.getLogger(HotelConfig.class);
 
-	public static Properties loadSysfig() {
-		InputStream inputStream = Properties.class.getClassLoader().getResourceAsStream("hotel-config.properties");
+	private static Properties loadSysfig() {
+		InputStream inputStream = HotelConfig.class.getClassLoader().getResourceAsStream("hotel-config.properties");
 		try {
 			_conf.load(inputStream);
 			inputStream.close();
@@ -22,5 +22,14 @@ public class HotelConfig {
 			log.error("Read InputStream ERROR：", e);
 		}
 		return _conf;
+	}
+
+	public static String getValue(String key) {
+
+		return loadSysfig().getProperty(key);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(HotelConfig.getValue("food.image.path"));
 	}
 }

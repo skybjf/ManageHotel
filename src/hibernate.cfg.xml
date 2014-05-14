@@ -43,6 +43,7 @@
 	<mapping resource="com/hotel/model/Operator.hbm.xml" />
 	<mapping resource="com/hotel/model/RoomInfo.hbm.xml" />
 	<mapping resource="com/hotel/model/RoomType.hbm.xml" />
+	<mapping resource="com/hotel/model/Food.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>

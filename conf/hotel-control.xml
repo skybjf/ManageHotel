@@ -11,25 +11,36 @@
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 	<!-- action 层 start -->
-	
+
 	<!-- 用户Action -->
 	<bean id="operatorAction" class="com.hotel.action.OperatorAction">
 		<property name="operatorService" ref="operatorService" />
 	</bean>
-	<!-- action 层 end -->
-
-
-	<!-- dao 层 start -->
-	<!-- 用户 -->
-	<bean id="operatorDao" class="com.hotel.dao.imp.OperatorDaoImp">
-		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	<bean id="foodAction" class="com.hotel.action.FoodAction">
+		<property name="foodService" ref="foodService" />
 	</bean>
-	<!-- dao 层 end -->
+	<!-- action 层 end -->
 
 	<!-- service 层 start -->
 
 	<bean id="operatorService" class="com.hotel.service.imp.OperatorServiceImp">
 		<property name="operatorDao" ref="operatorDao" />
 	</bean>
+	<bean id="foodService" class="com.hotel.service.imp.FoodServiceImp">
+		<property name="foodDao" ref="foodDao" />
+	</bean>
+
 	<!-- service 层 end -->
+
+	<!-- dao 层 start -->
+	<!-- 用户 -->
+	<bean id="operatorDao" class="com.hotel.dao.imp.OperatorDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="foodDao" class="com.hotel.dao.imp.FoodDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- dao 层 end -->
+
+
 </beans>

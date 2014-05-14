@@ -49,4 +49,14 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 		return super.listObject(hql, operator);
 	}
 
+	// 登录功能
+	public Operator login(Operator operator) {
+		Operator res = this.selectObject(operator);
+		if (res != null) {
+			res.setLoginTime(HotelUtils.getCurrentTime());
+			this.updateObject(res);
+			return res;
+		} else
+			return null;
+	}
 }

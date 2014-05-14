@@ -4,6 +4,7 @@ import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
 import com.hotel.util.HotelUtils;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import common.Logger;
 
@@ -24,9 +25,14 @@ public class OperatorAction extends ActionSupport {
 		if (operator.getUserName().equals("") || operator.getUserName() == null || operator.getPwd().equals("") || operator.getPwd() == null) {
 			return "loginError";
 		} else {
-			operator = operatorService.selectOperator(operator);
+			operator = operatorService.login(operator);
 			if (operator != null) {
 				log.info(operator.getUserName() + " login  sessucess" + HotelUtils.getCurrentTime());
+				// 将用户信息放入session中 ,用于判断是否登录, 跟权限信息
+				ActionContext.getContext().getSession().put("operatorId", operator.getUserName());
+				ActionContext.getContext().getSession().put("userName", operator.getUserName());
+				ActionContext.getContext().getSession().put("userType", operator.getUserName());
+				ActionContext.getContext().getSession().put("loginTime", operator.getUserName());
 				return "loginSuccess";
 			}
 		}

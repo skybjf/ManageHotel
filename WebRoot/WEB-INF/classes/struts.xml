@@ -16,4 +16,9 @@
 			<result name="delOperator">/listOperator.jsp </result><!-- 主页面 -->
 		</action>
 	</package>
+	<package name="food" namespace="/" extends="struts-default">
+		<action name="foodAction" class="com.hotel.action.FoodAction">
+			<result name="ok">/upload.jsp</result><!-- 登录成功 -->
+		</action>
+	</package>
 </struts>

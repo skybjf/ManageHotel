@@ -25,7 +25,7 @@ public class OperatorServiceImp implements OperatorService {
 		return operatorDao.saveObject(operator);
 	}
 
-	public Operator selectOperator(Operator operator) {
+	public Operator login(Operator operator) {
 		if (operator.getPwd() != null) {
 			operator.setPwd(MD5Util.encryption(operator.getPwd()));
 			return operatorDao.selectObject(operator);
@@ -35,14 +35,15 @@ public class OperatorServiceImp implements OperatorService {
 	}
 
 	public boolean updateOperator(Operator operator) {
-		return false;
+
+		return this.operatorDao.updateObject(operator);
 	}
 
 	public PageObject listOperator(PageObject operator, String name, String id) {
 		StringBuilder sb = new StringBuilder("from ");
-		sb.append(TablesEnum.OPERATOR.getTableName()).append(" where 1=1");
+		sb.append(TablesEnum.OPERATOR.getTableName()).append(" where 1=1 ");
 		if (name != null && !name.equals("")) {
-			sb.append(" and userName like '%").append(name).append("%'");
+			sb.append(" and userName like '%").append(name).append("%' ");
 		}
 
 		if (id != null && !id.equals("")) {
@@ -57,6 +58,11 @@ public class OperatorServiceImp implements OperatorService {
 
 	public boolean updateOptDelMarkByIds(String[] ids) {
 		return operatorDao.updateOptDelMarkByIds(ids);
+	}
+
+	// 单个查询
+	public Operator selectOperator(Operator operator) {
+		return operatorDao.selectObject(operator);
 	}
 
 }
