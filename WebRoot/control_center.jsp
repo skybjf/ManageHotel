@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -32,8 +33,8 @@
 							<div class="nav-collapse collapse">
 								<p class="navbar-text pull-right" style="line-height: 50px;">
 									<span class="navbar-link "><span
-										class="icon-user icon-vertical icon-white"></span>Username</span> <a
-										href="#" class="navbar-link"><span
+										class="icon-user icon-vertical icon-white"></span>${userName}</span>
+									<a href="operatorAction!logout" class="navbar-link"><span
 										class="icon-remove icon-vertical icon-white"></span>退出</a>
 								</p>
 								<ul class="nav font-16">
@@ -83,13 +84,16 @@
 						<!--right-->
 						<div id="controlcenter" class="span9 row-fluid">
 							<div class="showhide">
-								<jsp:include	page="control_center_right.jsp"></jsp:include>
+								<jsp:include page="control_center_right.jsp"></jsp:include>
 							</div>
-					<%-- 	<div class="showhide hide">
-								<jsp:include page="control_center_adminnormal.jsp"></jsp:include>
-							</div> --%>
 							<div class="showhide hide">
-								<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
+								userType=${userType}
+								<s:if test="#session.userType==0"> 
+									<jsp:include page="control_center_adminnormal.jsp"></jsp:include>
+								</s:if>
+								<s:else>
+									<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
+								</s:else>
 							</div>
 							<div class="showhide hide">
 								<jsp:include page="control_center_book.jsp"></jsp:include>
@@ -101,6 +105,7 @@
 								<jsp:include page="control_center_checkout.jsp"></jsp:include>
 							</div>
 						</div>
+
 						<!--/span-->
 					</div>
 					<!--/row-->
@@ -113,5 +118,6 @@
 			addStatus($("#left li"), $("#controlcenter .showhide"));
 		});
 	</script>
+	<s:debug></s:debug>
 </body>
 </html>

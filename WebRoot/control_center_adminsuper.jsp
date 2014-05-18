@@ -30,38 +30,53 @@
 			</div>
 			<button id="addadmin" type="submit" class="btn btn-info offset1">添加</button>
 		</div>
-		<form id="adminsuperadd" class="hide form-horizontal marT20" action="">
+		<!-- 该处是用来添加管理员的 -->
+		<form id="adminsuperadd" class="hide form-horizontal marT20"
+			action="operatorAction!addOperator" method="post"
+			enctype="multipart/form-data">
 			<div class="control-group">
 				<label class="control-label" for="inputName">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
 				<div class="controls">
-					<input type="text" id="inputName" placeholder="Name">
+					<input type="text" id="inputName" placeholder="Name"
+						name="operator.userName">
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputEmail">邮箱地址</label>
 				<div class="controls">
-					<input type="text" id="inputEmail" placeholder="Email">
+					<input type="text" id="inputEmail" placeholder="Email"
+						name="operator.mail">
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputPassword0">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
 				<div class="controls">
-					<input type="password" id="inputPassword0" placeholder="Password">
+					<input type="password" id="inputPassword0" placeholder="Password"
+						name="operator.pwd">
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputGender">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
 				<div class="controls">
-					<select>
-						<option>男</option>
-						<option>女</option>
+					<select name="operator.gender">
+						<option value="male">男</option>
+						<option value="female">女</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputGender">管理等级</label>
+				<div class="controls">
+					<select name="operator.userType">
+						<option value="0">初级管理员</option>
+						<option value="1">超级管理员</option>
 					</select>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputUrl">头像连接</label>
 				<div class="controls">
-					<input type="file" id="inputUrl" placeholder="Avatar">
+					<input type="file" id="inputUrl" placeholder="Avatar" name="image">
 				</div>
 			</div>
 			<div class="control-group">
@@ -137,10 +152,13 @@
 	</div>
 
 	<script type="text/javascript">
-		$(window).ready(function() {
-			showToggle($("#addadmin"), $("#adminsuperadd"), $("#showsdmin"), true);
-			showToggle($("#adminsuperreset"), $("#adminsuperadd"), $("#showsdmin"), false);
-		});
+		$(window).ready(
+				function() {
+					showToggle($("#addadmin"), $("#adminsuperadd"),
+							$("#showsdmin"), true);
+					showToggle($("#adminsuperreset"), $("#adminsuperadd"),
+							$("#showsdmin"), false);
+				});
 	</script>
 </body>
 </html>

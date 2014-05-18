@@ -5,7 +5,9 @@ public class Operator {
 	private int id;// 自增ID
 	private String userName;// 用户名
 	private String pwd;// 用户密码
+	private String gender;// 性别
 	private String mail;// 用户邮箱用于找回密码
+	private String url;// 用户邮箱用于找回密码
 	private String userType;// 用户类型
 	private String loginTime; // 上次登录时间
 	private String delMark;// 删除标记
@@ -71,6 +73,22 @@ public class Operator {
 	}
 
 	public String toLogString() {
-		return "Operator [id=" + id + ", userName=" + userName + ", pwd=" + pwd + ", mail=" + mail + ", userType=" + userType + "]";
+		return "Operator [id=" + id + ", userName=" + userName + ", pwd=" + pwd + ", gender=" + gender + ", mail=" + mail + ", userType=" + userType + "]";
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

@@ -1,8 +1,13 @@
 package com.hotel.action;
 
+import java.io.File;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
+import com.hotel.util.HotelConfig;
 import com.hotel.util.HotelUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,6 +24,13 @@ public class OperatorAction extends ActionSupport {
 	// 用作用户的相关操作
 	private OperatorService operatorService;
 
+	private File image;
+	private String imageFileName;
+	// 用户修改个人信息 用于密码确认
+	private String newPwd;
+
+	private String newPwdSure;
+
 	// 登录
 	public String login() {
 		System.out.println("login");
@@ -29,10 +41,13 @@ public class OperatorAction extends ActionSupport {
 			if (operator != null) {
 				log.info(operator.getUserName() + " login  sessucess" + HotelUtils.getCurrentTime());
 				// 将用户信息放入session中 ,用于判断是否登录, 跟权限信息
-				ActionContext.getContext().getSession().put("operatorId", operator.getUserName());
+				ActionContext.getContext().getSession().put("operatorId", operator.getId());
 				ActionContext.getContext().getSession().put("userName", operator.getUserName());
-				ActionContext.getContext().getSession().put("userType", operator.getUserName());
-				ActionContext.getContext().getSession().put("loginTime", operator.getUserName());
+				ActionContext.getContext().getSession().put("userMail", operator.getMail());
+				ActionContext.getContext().getSession().put("loginTime", operator.getLoginTime());
+				ActionContext.getContext().getSession().put("userType", operator.getUserType());
+				operator.setLoginTime(HotelUtils.getCurrentTime());
+				operatorService.updateOperator(operator);
 				return "loginSuccess";
 			}
 		}
@@ -40,12 +55,19 @@ public class OperatorAction extends ActionSupport {
 		return "loginError";
 	}
 
+	public String logout() {
+		ActionContext.getContext().getSession().clear();
+		return "logout";
+	}
+
 	// 添加用户
 	public String addOperator() {
+		String basePath = ServletActionContext.getServletContext().getRealPath(HotelConfig.getValue("operator.image.path"));
+		System.out.println(basePath);
 		if (operator.getUserName().equals("") || operator.getUserName() == null || operator.getPwd().equals("") || operator.getPwd() == null) {
 			return "addError";
 		}
-		boolean flag = operatorService.addOperator(operator);
+		boolean flag = operatorService.addOperator(operator, basePath, image, imageFileName);
 		if (flag) {
 			log.info(HotelUtils.getCurrentTime() + "add " + operator.toLogString() + " SUCCESS");
 			return "addSuccess";
@@ -71,7 +93,8 @@ public class OperatorAction extends ActionSupport {
 	}
 
 	// 更新用户
-	public String update() {
+	public String updateOperator() {
+
 		boolean flag = operatorService.updateOperator(operator);
 		if (flag) {
 			this.pageOperator = operatorService.listOperator(pageOperator, "", "");
@@ -83,8 +106,16 @@ public class OperatorAction extends ActionSupport {
 	// 删除用户
 	public String delOperator() {
 		System.out.println("删除用户：" + operator.getId());
+		String ids[] = new String[1];
+		ids[0] = operator.getId() + "";
+		boolean flag = operatorService.delOperatorByIds(ids);
+		if (flag) {
+			return "updateSuccess";
 
-		return "";
+		} else {
+
+			return "updateError";
+		}
 	}
 
 	public Operator getOperator() {
@@ -109,5 +140,37 @@ public class OperatorAction extends ActionSupport {
 
 	public void setPageOperator(PageObject pageOperator) {
 		this.pageOperator = pageOperator;
+	}
+
+	public File getImage() {
+		return image;
+	}
+
+	public void setImage(File image) {
+		this.image = image;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+
+	public String getNewPwd() {
+		return newPwd;
+	}
+
+	public void setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
+	}
+
+	public String getNewPwdSure() {
+		return newPwdSure;
+	}
+
+	public void setNewPwdSure(String newPwdSure) {
+		this.newPwdSure = newPwdSure;
 	}
 }

@@ -8,26 +8,34 @@
 			<generator class="identity" />
 		</id>
 		<property name="userName" type="java.lang.String">
-			<column name="user_name" length="20" >
+			<column name="user_name" length="20">
 			</column>
 		</property>
 		<property name="pwd" type="java.lang.String">
-			<column name="pwd" length="64" >
+			<column name="pwd" length="64">
 			</column>
 		</property>
-		<property name="mail" type="java.lang.String" >
-			<column name="mail" length="20">
+		<property name="mail" type="java.lang.String">
+			<column name="mail" length="10">
 			</column>
 		</property>
-		<property name="userType" type="java.lang.String" >
+		<property name="gender" type="java.lang.String">
+			<column name="gender" length="20">
+			</column>
+		</property>
+		<property name="url" type="java.lang.String">
+			<column name="url" length="50">
+			</column>
+		</property>
+		<property name="userType" type="java.lang.String">
 			<column name="user_type" length="1">
 			</column>
 		</property>
-	<property name="loginTime" type="java.lang.String">
-		<column name="login_time" length="20">
-		</column>
-	</property>
-		<property name="delMark" type="java.lang.String" >
+		<property name="loginTime" type="java.lang.String">
+			<column name="login_time" length="20">
+			</column>
+		</property>
+		<property name="delMark" type="java.lang.String">
 			<column name="delmark" length="1">
 			</column>
 		</property>

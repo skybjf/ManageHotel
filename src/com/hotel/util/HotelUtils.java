@@ -64,7 +64,7 @@ public class HotelUtils {
 		String[] imageContentType = fileName.split("\\.");
 		String newFileName = getCurrentTimeMillis() + "." + imageContentType[1];
 		String filePath = upPath + "\\" + newFileName;
-		String sevePath = HotelConfig.getValue("food.image.path") + newFileName;
+		String sevePath = HotelConfig.getValue("operator.image.path") + newFileName;
 		try {
 			FileUtil.copyFile(file, new File(filePath));
 		} catch (IOException e) {
