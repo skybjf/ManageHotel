@@ -1,10 +1,12 @@
 package com.hotel.service;
 
+import java.io.File;
+
 import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 
 public interface OperatorService {
-	boolean addOperator(Operator operator);
+	boolean addOperator(Operator operator, String basePath, File optImg, String optImgFileName);
 
 	// 该方法用于假删除以防止用户误操作
 	boolean updateOptDelMarkByIds(String[] ids);

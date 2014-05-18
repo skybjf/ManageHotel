@@ -8,7 +8,8 @@
 	<!-- 用户登录action -->
 	<package name="operator" namespace="/" extends="struts-default">
 		<action name="operatorAction" class="com.hotel.action.OperatorAction">
-			<result name="loginSuccess">/MyJsp.jsp</result><!-- 登录成功 -->
+			<result name="loginSuccess">/control_center.jsp</result><!-- 登录成功 -->
+			<result name="logOut">/Login.jsp</result><!-- 登录成功 -->
 			<result name="loginError">/Login.jsp </result><!-- 主页面 -->
 			<result name="addSuccess">/Login.jsp </result><!-- 主页面 -->
 			<result name="addError">/Login.jsp </result><!-- 主页面 -->
