@@ -1,6 +1,5 @@
 $(window).ready(function() {
 	addBlue();
-
 });
 function addBlue() {
 	var item = $("#left li");
@@ -46,4 +45,12 @@ function addStatus(firstCycle, sencondCycle) {
 			});
 		});
 	});
+}
+
+//检验非空
+function checkNull(e){
+    var x = e.value;
+	if(x.length<=0||x===""){
+        e.addClass("error");
+    }
 }

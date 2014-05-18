@@ -9,20 +9,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script charset="utf-8" type="text/javascript"
-	src="js/jquery-1.10.2.min.js"></script>
+<script charset="utf-8" type="text/javascript"	src="js/jquery-1.10.2.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/bootstrap-wysiwyg.js"></script>
+<script type="text/javascript" src="js/jquery.hotkeys.js"></script>
+
 
 <title>信息中心</title>
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/public.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap-responsive.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/index.css">
+<link type="text/css" charset="utf-8" rel="stylesheet" href="css/public.css">
+<link type="text/css" charset="utf-8" rel="stylesheet" href="css/bootstrap.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet" href="css/index.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -63,10 +61,10 @@
 							<div class="well sidebar-nav">
 								<ul id="left" class="nav nav-list">
 									<li class="nav-header"><span class="icon-envelope icon-vertical"></span> 信息中心</li>
-									<li><a href="#">招聘信息</a></li>
-									<li><a href="#">酒店新闻</a></li>
-									<li><a href="#">会议安排</a></li>
-									<li><a href="#">打折信息</a></li>
+									<li><a>招聘信息</a></li>
+									<li><a>酒店新闻</a></li>
+									<li><a>会议安排</a></li>
+									<li><a>打折信息</a></li>
 									<!--<li class="active"><a href="#">单人房</a></li>-->
 								</ul>
 							</div>
@@ -74,8 +72,9 @@
 						</div>
 						<!--/span-->
 						<!--right-->
-						<div class="span9 row-fluid ">
-							<ul class="well clearfix each_info">
+						<div id="infocenter" class="span9 row-fluid ">
+						
+							<ul class="well span12 clearfix each_info showhide">
 								<li>
 									<dl>
 										<dt>
@@ -125,14 +124,30 @@
 									</dl>
 								</li>
 							</ul>
+							<div class="hide showhide">
+								<jsp:include page="infomation_center_recruitment.jsp"></jsp:include>
+							</div>
+							<div class="hide showhide">
+								<jsp:include page="infomation_center_news.jsp"></jsp:include>
+							</div>
+							<div class="hide showhide">
+								<jsp:include page="infomation_center_meeting.jsp"></jsp:include>
+							</div>
+							<div class="hide showhide">
+								<jsp:include page="infomation_center_discount.jsp"></jsp:include>
+							</div>
 						</div>
 						<!--/span-->
 					</div>
 					<!--/row-->
-					<hr>
 				</div>
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(window).ready(function() {
+			addStatus($("#left li"), $("#infocenter .showhide"));
+		});
+	</script>
 </body>
 </html>

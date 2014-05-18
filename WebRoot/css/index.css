@@ -131,6 +131,50 @@ body{
 .font-16{
     font-size:16px;
 }
+/* 编辑器样式 */
+#editor1,#editor2 {
+	max-height: 400px;
+	height: 400px;
+	background-color: white;
+	border-collapse: separate; 
+	border: 1px solid rgb(204, 204, 204); 
+	padding: 4px; 
+	box-sizing: content-box; 
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; 
+	box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+	border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+	overflow: auto;
+	outline: none;
+}
+#voiceBtn {
+  width: 20px;
+  color: transparent;
+  background-color: transparent;
+  transform: scale(2.0, 2.0);
+  -webkit-transform: scale(2.0, 2.0);
+  -moz-transform: scale(2.0, 2.0);
+  border: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+div[data-role="editor-toolbar"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+}
+/* 编辑器结束 */
+
+#left li:hover{cursor: pointer;}
+
+#timewaring{width:400px;height:40px;position:absolute;left:50%;top:50%;margin-left:-200px;margin-top:-100px;}
+.mengban{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.6);}
 
 .each_facility dd{line-height: 20px;height: 20px;}
 .each_facility dd a:HOVER{text-decoration: none;cursor: pointer;}
@@ -139,6 +183,8 @@ body{
 .each_food{padding-top:0;padding-left: 0;}
 .each_food li{float: left;width:30%;margin:20px 0 0 26px;}
 .each_info{padding-top:0;padding-bottom: 0;}
+.btn-toolbar a:hover,.btn-toolbar a:active{vertical-align: bottom;}
+
 
 .icon-vertical{vertical-align: -2px;}
 
@@ -150,4 +196,4 @@ body{
 .control_center .adminsuper table tr td{text-align: center;}
 .control_center .right_div .book{height:200px;overflow:auto;}
 .control_center .right_div .book li{line-height:30px;height:30px;margin-top:10px;}
-
+.confirmForm{background:#FFF;border-radius:4px;margin-top:-200px;margin-left:-250px;padding-top:30px;width:500px;position:absolute;left:50%;top:50%;}

@@ -14,15 +14,12 @@
 <script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/controller.js"></script>
 
+
 <title>管理中心</title>
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/public.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap-responsive.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/index.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/public.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap-responsive.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/index.css">
 </head>
 <body>
 	<div class="container-fluid control_center">
@@ -88,7 +85,7 @@
 							<div class="showhide">
 								<jsp:include	page="control_center_right.jsp"></jsp:include>
 							</div>
-<%-- 						<div class="showhide hide">
+					<%-- 	<div class="showhide hide">
 								<jsp:include page="control_center_adminnormal.jsp"></jsp:include>
 							</div> --%>
 							<div class="showhide hide">
