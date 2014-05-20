@@ -54,3 +54,36 @@ function checkNull(e){
         e.addClass("error");
     }
 }
+//修改input为可修改
+function changeInput(flag,btnItem,divItem){
+	btnItem.each(function(i){
+		$(this).click(function(){
+			var index = i;
+			divItem.each(function(g,n) {
+				if (index === g) {
+					if(flag){
+						$(n).children('input').removeAttr("readonly");
+					}else{
+						$(n).children('input').attr("readonly","readonly");
+					}
+				}
+			});
+		});
+	});
+}
+
+//添加input框
+function addInput(btnItem,divItem){
+	btnItem.each(function(i){
+		$(this).click(function(){
+			var index = i;
+			divItem.each(function(g,n) {
+				if (index === g) {
+					$(n).append("<input class='f_l' type='text' value=''/>");
+				}
+			});
+		});
+	});
+}
+
+

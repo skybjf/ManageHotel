@@ -22,17 +22,17 @@
 					<a class="brand" href="#"></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav font-16">
-							<li><a href="index.jsp"><span
+							<li><a><span
 									class="icon-home icon-vertical icon-white"></span> 主页</a></li>
-							<li><a href="facility.jsp"><span
+							<li><a ><span
 									class="icon-th-large icon-vertical icon-white"></span> 客房设施</a></li>
-							<li><a href="food.jsp"><span
-									class="icon-glass icon-vertical icon-white"></span> 美食展示</a></li>
-							<li><a href="infomation_center.jsp"><span
+	<!-- 						<li><a href="food.jsp"><span
+									class="icon-glass icon-vertical icon-white"></span> 美食展示</a></li> -->
+							<li><a ><span
 									class="icon-envelope icon-vertical icon-white"></span> 信息中心</a></li>
-							<li><a href="control_center.jsp"><span
+							<li><a ><span
 									class="icon-briefcase icon-vertical icon-white"></span> 管理中心</a></li>
-							<li><a href="hotel_control.jsp"><span
+							<li><a ><span
 									class="icon-list-alt icon-vertical icon-white"></span> 酒店管理</a></li>
 						</ul>
 					</div>

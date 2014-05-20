@@ -9,18 +9,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script charset="utf-8" type="text/javascript"
-	src="js/jquery-1.10.2.min.js"></script>
+<script charset="utf-8" type="text/javascript"	src="js/jquery-1.10.2.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
 <title>首页</title>
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/bootstrap-responsive.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/public.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"
-	href="css/index.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap-responsive.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/public.css">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/index.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -42,8 +38,8 @@
 									</li>
 									<li><a href="facility.jsp"><span class="icon-th-large icon-vertical icon-white"></span> 客房设施</a>
 									</li>
-									<li><a href="food.jsp"><span class="icon-glass icon-vertical icon-white"></span> 美食展示</a>
-									</li>
+<!-- 									<li><a href="food.jsp"><span class="icon-glass icon-vertical icon-white"></span> 美食展示</a>
+									</li> -->
 									<li><a href="infomation_center.jsp"><span class="icon-envelope icon-vertical icon-white"></span> 信息中心</a>
 									</li>
 									<li><a href="control_center.jsp"><span class="icon-briefcase icon-vertical icon-white"></span> 管理中心</a>
@@ -77,7 +73,7 @@
 											</ul>
 										</div>
 									</li>
-									<li>
+	<!-- 								<li>
 										<div class="nav-header accordion-toggle "
 											data-toggle="collapse" data-parent="#accordion2"
 											href="#collapseTwo"><span class="icon-glass icon-vertical"></span> 美食展示</div>
@@ -89,7 +85,7 @@
 												<li><a href="#">冬</a></li>
 											</ul>
 										</div>
-									</li>
+									</li> -->
 									<li>
 										<div class="nav-header accordion-toggle "
 											data-toggle="collapse" data-parent="#accordion2"

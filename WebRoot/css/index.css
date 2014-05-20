@@ -2,6 +2,7 @@ body{
     font-family: '微软雅黑';
     font-size:14px;
 }
+ul{margin:0;}
 .center{
     margin:180px auto ;
     width: 31.914893617021278%;
@@ -26,6 +27,7 @@ body{
 .navbar .navbar-inner {border: 0;-webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);-moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);box-shadow: 0 2px 10px rgba(0,0,0,.25);}
 .navbar .brand {padding: 14px 20px 16px;font-size: 16px;font-weight: bold;text-shadow: 0 -1px 0 rgba(0,0,0,.5); background: url('../img/LOGO260.png') -28px 10px no-repeat;width: 204px;height:20px;
 }
+.navbar .nav > li > a:hover{cursor: pointer;}
 .navbar .nav > li > a {padding: 15px 11px;}
 .navbar .btn-navbar {
     margin-top: 10px;
@@ -179,16 +181,16 @@ div[data-role="editor-toolbar"] {
 .each_facility dd{line-height: 20px;height: 20px;}
 .each_facility dd a:HOVER{text-decoration: none;cursor: pointer;}
 
-.each_room .text input{padding:0 0 0 2px;line-height: 24px;height:22px;width:290px;margin:8px 10px 0 20px;border:1px solid #fff;}
+.each_room .text input{padding:0 0 0 2px;line-height: 22px;height:22px;width:290px;margin:8px 10px 0 20px;border:1px solid #fff;}
 .each_food{padding-top:0;padding-left: 0;}
 .each_food li{float: left;width:30%;margin:20px 0 0 26px;}
 .each_info{padding-top:0;padding-bottom: 0;}
 .btn-toolbar a:hover,.btn-toolbar a:active{vertical-align: bottom;}
 
 
-.icon-vertical{vertical-align: -2px;}
+.icon-vertical{vertical-align:0px;}
 
-.control_center .right_div{height:260px;margin-bottom:20px;}
+.control_center .right_div,.each_hotel_control .onechart{height:260px;margin-bottom:20px;}
 .control_center h4{margin:0;}
 .control_center .admin div{margin:25px 0;}
 .control_center .normal .right_top{margin:10px;}
@@ -197,3 +199,4 @@ div[data-role="editor-toolbar"] {
 .control_center .right_div .book{height:200px;overflow:auto;}
 .control_center .right_div .book li{line-height:30px;height:30px;margin-top:10px;}
 .confirmForm{background:#FFF;border-radius:4px;margin-top:-200px;margin-left:-250px;padding-top:30px;width:500px;position:absolute;left:50%;top:50%;}
+#hotel_control_traffic,#hotel_control_roomuse,#hotel_control_craft,#hotel_control_temperature{height:520px;}
