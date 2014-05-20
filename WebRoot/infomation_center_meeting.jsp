@@ -31,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h4>会议标题</h4><div>2015-05-06</div>
 					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
 					<div class="clearfix marT10">
-						<button id="recruitmentReset" class="btn btn-primary btn-mini " type="button">修改</button>
-						<button id="gobcaktorecruitment" class="btn btn-primary btn-mini " type="button">删除</button>	
+						<button id="meetingReset" class="btn btn-primary btn-mini " type="button">修改</button>
+						<button id="meetingDel" class="btn btn-primary btn-mini " type="button">删除</button>	
 					</div>
 				</li>
 				<li class="marT20">
@@ -116,9 +116,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<div id="editor2">输入内容&hellip;</div>
 			<div class="clearfix">
-				<button id="comfirmeeting" class="btn btn-primary marT10 offset3 span2" type="button">发布</button>
+				<button id="comfirmeeting" class="btn btn-primary marT10 offset3 span2" type="button">完成</button>
 				<button id="meetingReset" class="btn btn-primary marT10  span2" type="button">清除</button>
-				<button id="gobcaktomeeting" class="btn btn-primary marT10  span2" type="button">返回</button>	
+				<button id="gobacktomeeting" class="btn btn-primary marT10  span2" type="button">返回</button>	
 			</div>
 		</div>
 	</div>
@@ -180,9 +180,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			;
 			initToolbarBootstrapBindings();
 			$('#editor2').wysiwyg({fileUploadError : showErrorAlert});
-			/* 发不招聘信息 */
+			/* 发布招聘信息 */
 			showToggle($('#createmeeting'),$('.meetingdiv'),$('#showmeeting'),true);		
-			showToggle($('#gobcaktomeeting'),$('.meetingdiv'),$('#showmeeting'),false);	
+			showToggle($('#gobacktomeeting'),$('.meetingdiv'),$('#showmeeting'),false);	
 			$('#comfirmeeting').click(function(){
 				var str=$('#editor2').html();
 				alert(str);

@@ -19,7 +19,7 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -35,8 +35,8 @@
 					<div><b>月薪</b>：3000元	<b>招聘</b>：10-30人</div>
 					<p>打破撕破担惊受怕冬季阿婆鸡婆随风飘散的佛教的批发价的婆婆都将打破打破附近的赔付判决哦</p>
 					<div class="clearfix marT10">
-						<button id="recruitmentReset" class="btn btn-primary btn-mini " type="button">修改</button>
-						<button id="gobcaktorecruitment" class="btn btn-primary btn-mini " type="button">删除</button>	
+						<button id="recruitmentChange" class="btn btn-primary btn-mini " type="button">修改</button>
+						<button id="" class="btn btn-primary btn-mini " type="button">删除</button>	
 					</div>
 				</li>
 				<li class="marT20">
@@ -120,9 +120,9 @@
 			
 			<div id="editor1">输入内容&hellip;</div>
 			<div class="clearfix">
-				<button id="comfirreleaserecruit" class="btn btn-primary marT10 offset3 span2" type="button">发布</button>
+				<button id="comfirreleaserecruit" class="btn btn-primary marT10 offset3 span2" type="button">完成</button>
 				<button id="recruitmentReset" class="btn btn-primary marT10  span2" type="button">清除</button>
-				<button id="gobcaktorecruitment" class="btn btn-primary marT10  span2" type="button">返回</button>	
+				<button id="gobacktorecruitment" class="btn btn-primary marT10  span2" type="button">返回</button>	
 			</div>
 		</div>
 	</div>
@@ -186,9 +186,9 @@
 			;
 			initToolbarBootstrapBindings();
 			$('#editor1').wysiwyg({fileUploadError : showErrorAlert});
-			/* 发不招聘信息 */
+			/* 发布招聘信息 */
 			showToggle($('#releaserecruitinfo'),$('.recruitinfodiv'),$('#showrecruitment'),true);		
-			showToggle($('#gobcaktorecruitment'),$('.recruitinfodiv'),$('#showrecruitment'),false);	
+			showToggle($('#gobacktorecruitment'),$('.recruitinfodiv'),$('#showrecruitment'),false);	
 			$('#comfirreleaserecruit').click(function(){
 				var str=$('#editor1').html();
 				alert(str);

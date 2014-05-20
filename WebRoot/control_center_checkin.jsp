@@ -9,7 +9,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-
 </head>
 <body>
 	<div class="well">
