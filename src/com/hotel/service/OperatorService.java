@@ -22,4 +22,6 @@ public interface OperatorService {
 
 	Operator selectOperator(Operator operator);
 
+	String uploadOperatorImage(File file, String fileName, String upPath);
+
 }

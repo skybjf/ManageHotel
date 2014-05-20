@@ -19,6 +19,8 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
+<script charset="utf-8" type="text/javascript"
+	src="js/operator_update.js"></script>
 <script type="text/javascript">
 	$(window).ready(function() {
 		showForm($("#showForm"), $("#adminnormalchange"));
@@ -31,22 +33,24 @@
 	<div class="well normal">
 		<div class="row-fluid">
 			<div class="span4">
-				<img class="img-polaroid" alt="" src="img/admin/head.jpg"
+				<img class="img-polaroid" alt="" src="<%=basePath%><s:property value='#session.image'/>"
 					style="height:200px;width: 200px;">
 			</div>
 
 			<div class="span8">
 				<h4 class="control-group" style="padding-left:80px;">
-					<b>${userName}</b> 欢迎来到管理中心
+					<b id="myUserName">${userName}</b> 欢迎来到管理中心
 				</h4>
 				<div class="clearfix right_top">
 					<span class="f_l">上次登录时间</span> <span class="f_l"
 						style="color:red;">${loginTime}</span> <a id="showForm"
 						class="btn">修改信息</a>
 				</div>
+				<iframe name="iframe" id="iframe" hidden="true"></iframe>
 				<form id="adminnormalchange" class="hide form-horizontal "
-					action="operatorAction!updateOperator" method="post"
-					enctype="multipart/form-data">
+					<%-- action="operatorAction!updateOperator?operator.id=${operatorId}&operator.userName=${userName}" --%>
+					action="operatorAction!uploadOperatiorImage"
+					method="post" enctype="multipart/form-data" target="iframe">
 					<div class="control-group">
 						<label class="control-label" for="inputEmail">邮箱地址</label>
 						<div class="controls">
@@ -57,29 +61,32 @@
 					<div class="control-group">
 						<label class="control-label" for="inputGender">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
 						<div class="controls">
-							<select name="operator.gender">
+							<select name="operator.gender" id="gender">
 								<option value="male">男</option>
 								<option value="female">女</option>
 							</select>
 						</div>
 					</div>
 					<div class="control-group">
-						<label class="control-label" for="inputEmail">管理等级</label>
+						<label class="control-label" for="inputLevel">管理等级</label>
 						<div class="controls">
 							<s:if test="#session.userType==0">
-								<input type="text" id="inputEmail" placeholder="Email"
-									disabled="disabled" value="初级管理员">
+								<input type="text" id="inputLevel" disabled="disabled"
+									value="初级管理员">
+								<input type="text" class="hide" id="inputLevel1" value="0">
 							</s:if>
 							<s:else>
-								<input type="text" id="inputEmail" placeholder="Email"
-									disabled="disabled" value="超级管理员">
+								<input type="text" id="inputLevel" disabled="disabled"
+									value="超级管理员">
+								<input type="text" class="hide" id="inputLevel1" value="1">
 							</s:else>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="inputPassword0">原密码</label>
 						<div class="controls">
-							<input type="password" id="inputPassword0" placeholder="Password">
+							<input type="password" id="inputPassword0" placeholder="Password"
+								name="oldPwd">
 						</div>
 					</div>
 					<div class="control-group">
@@ -105,7 +112,7 @@
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn btn-info">确定</button>
+							<button type="button" class="btn btn-info" id="queding">确定</button>
 							<button id="adminnormalreset" type="reset" class="btn btn-info">取消</button>
 						</div>
 					</div>

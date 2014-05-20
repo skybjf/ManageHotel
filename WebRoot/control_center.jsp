@@ -88,11 +88,11 @@
 							</div>
 							<div class="showhide hide">
 								userType=${userType}
-								<s:if test="#session.userType==0"> 
-									<jsp:include page="control_center_adminnormal.jsp"></jsp:include>
+								<s:if test="#session.userType==1">
+									<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
 								</s:if>
 								<s:else>
-									<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
+									<jsp:include page="control_center_adminnormal.jsp"></jsp:include>
 								</s:else>
 							</div>
 							<div class="showhide hide">

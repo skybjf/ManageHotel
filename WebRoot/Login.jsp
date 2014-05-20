@@ -4,8 +4,11 @@
 <head>
 <script charset="utf-8" type="text/javascript"
 	src="js/jquery-1.10.2.min.js"></script>
-<script charset="utf-8" type="text/javascript" src="js/my.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/login.js"></script>
 <script charset="utf-8" type="text/javascript" src="js/bootstrap.min.js"></script>
+<script charset="utf-8" type="text/javascript">
+	
+</script>
 <title>登录</title>
 <link type="text/css" charset="utf-8" rel="stylesheet"
 	href="css/bootstrap.min.css">
@@ -90,13 +93,11 @@
 	<!--</div>-->
 	<div id="login" class="modal hide fade logindiv" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<form class="form-signin" action="operatorAction!login" method="post">
-			<h2 class="form-signin-heading">请登录</h2>
-			<input type="text" class="input-block-level" placeholder="用户名"
-				name="operator.userName"> <input type="password"
-				class="input-block-level" placeholder="密码" name="operator.pwd">
-			<button class="btn btn-large btn-primary" type="submit">登录</button>
-		</form>
+		<h2 class="form-signin-heading">请登录</h2>
+		<input type="text" class="input-block-level" placeholder="用户名" id="username"
+			name="operator.userName"> <input type="password"
+			class="input-block-level" placeholder="密码" name="operator.pwd" id="pwd">
+		<button class="btn btn-large btn-primary" type="button" id="submit">登录</button>
 	</div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -32,14 +33,14 @@
 				<div class="span6">
 					<img class="img-circle"
 						style="width: 180px; height: 180px;margin-top:20px;" alt=""
-						src="img/admin/head.jpg">
+						src="<%=basePath%><s:property value='#session.image'/>">
 				</div>
 				<div class="span6 admin">
 					<div>
-						您好管理员<b class="red">name</b>
+						您好管理员<b class="red">${userName}</b>
 					</div>
 					<div>上次登录时间为：</div>
-					<div>1990-01-03 15:30</div>
+					<div>${loginTime}</div>
 					<div>
 						<a class="btn btn-info">进入管理员中心</a>
 					</div>

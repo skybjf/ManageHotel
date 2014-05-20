@@ -52,8 +52,8 @@ public class OperatorServiceImp implements OperatorService {
 	}
 
 	public boolean updateOperator(Operator operator) {
-		String sql = "from " + TablesEnum.OPERATOR.getTableName() + " where id = '" + operator.getId() + "'";
-		this.operatorDao.selectObjectByIds(sql);
+		operator.setPwd(MD5Util.encryption(operator.getPwd()));
+		operator.setLoginTime(HotelUtils.getCurrentTime());
 		return this.operatorDao.updateObject(operator);
 	}
 
@@ -81,6 +81,11 @@ public class OperatorServiceImp implements OperatorService {
 	// 单个查询
 	public Operator selectOperator(Operator operator) {
 		return operatorDao.selectObject(operator);
+	}
+
+	public String uploadOperatorImage(File file, String fileName, String upPath) {
+		System.out.println(fileName);
+		return HotelUtils.upLoadFile(file, fileName, upPath);
 	}
 
 }

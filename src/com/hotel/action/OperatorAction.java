@@ -7,8 +7,10 @@ import org.apache.struts2.ServletActionContext;
 import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
+import com.hotel.util.ActionUtil;
 import com.hotel.util.HotelConfig;
 import com.hotel.util.HotelUtils;
+import com.hotel.util.PrintWriterUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import common.Logger;
@@ -26,6 +28,8 @@ public class OperatorAction extends ActionSupport {
 
 	private File image;
 	private String imageFileName;
+
+	private String oldPwd;
 	// 用户修改个人信息 用于密码确认
 	private String newPwd;
 
@@ -33,26 +37,54 @@ public class OperatorAction extends ActionSupport {
 
 	// 登录
 	public String login() {
-		System.out.println("login");
+		System.out.println(operator.toLogString());
 		if (operator.getUserName().equals("") || operator.getUserName() == null || operator.getPwd().equals("") || operator.getPwd() == null) {
-			return "loginError";
+			PrintWriterUtil.getPrintWriter().write("fail");
+			return null;
 		} else {
-			operator = operatorService.login(operator);
-			if (operator != null) {
-				log.info(operator.getUserName() + " login  sessucess" + HotelUtils.getCurrentTime());
+			Operator login;
+			login = operatorService.login(operator);
+			System.out.println(operator);
+			if (login != null) {
+				log.info(login.getUserName() + " login  sessucess " + HotelUtils.getCurrentTime());
 				// 将用户信息放入session中 ,用于判断是否登录, 跟权限信息
-				ActionContext.getContext().getSession().put("operatorId", operator.getId());
-				ActionContext.getContext().getSession().put("userName", operator.getUserName());
-				ActionContext.getContext().getSession().put("userMail", operator.getMail());
-				ActionContext.getContext().getSession().put("loginTime", operator.getLoginTime());
-				ActionContext.getContext().getSession().put("userType", operator.getUserType());
-				operator.setLoginTime(HotelUtils.getCurrentTime());
-				operatorService.updateOperator(operator);
-				return "loginSuccess";
+				ActionUtil.getSession().put("operatorId", login.getId());
+				ActionUtil.getSession().put("userName", login.getUserName());
+				ActionUtil.getSession().put("gender", login.getGender());
+				ActionUtil.getSession().put("image", login.getUrl());
+				ActionUtil.getSession().put("userMail", login.getMail());
+				ActionUtil.getSession().put("loginTime", login.getLoginTime());
+				ActionUtil.getSession().put("userType", login.getUserType());
+				login.setLoginTime(HotelUtils.getCurrentTime());
+				System.out.println("success");
+				operatorService.updateOperator(login);
+				System.out.println("success");
+				PrintWriterUtil.getPrintWriter().write("success");
+				return null;
+			} else {
+				log.info(operator.getUserName() + " login  ERROR " + HotelUtils.getCurrentTime());
+				PrintWriterUtil.getPrintWriter().write("fail");
+				return null;
 			}
 		}
-		log.info(operator.getUserName() + " login  ERROR" + HotelUtils.getCurrentTime());
-		return "loginError";
+	}
+
+	public String beforModifyPwd() {
+		System.out.println("ssss");
+		if (operator.getUserName().equals("") || operator.getUserName() == null || operator.getPwd().equals("") || operator.getPwd() == null) {
+			PrintWriterUtil.getPrintWriter().write("fail");
+			return null;
+		} else {
+			Operator login;
+			login = operatorService.login(operator);
+			if (login != null) {
+				PrintWriterUtil.getPrintWriter().write("success");
+				return null;
+			} else {
+				PrintWriterUtil.getPrintWriter().write("fail");
+				return null;
+			}
+		}
 	}
 
 	public String logout() {
@@ -94,13 +126,34 @@ public class OperatorAction extends ActionSupport {
 
 	// 更新用户
 	public String updateOperator() {
-
-		boolean flag = operatorService.updateOperator(operator);
-		if (flag) {
-			this.pageOperator = operatorService.listOperator(pageOperator, "", "");
-			return "updateSuccess";
+		operator.setId(Integer.valueOf(ActionUtil.getSession().get("operatorId").toString()));
+		if (newPwd.equals(newPwdSure)) {
+			operator.setPwd(newPwd);
+			operator.setDelMark("0");
+			if (operator.getUrl() != "" && operator.getUrl() != null) {
+				boolean flag = operatorService.updateOperator(operator);
+				if (flag) {
+					PrintWriterUtil.getPrintWriter().write("success");
+					return null;
+				}
+				PrintWriterUtil.getPrintWriter().write("fail");
+				return null;
+			}
 		}
-		return "updateError";
+		PrintWriterUtil.getPrintWriter().write("pwd");
+		return null;
+	}
+
+	public String uploadOperatiorImage() {
+		String basePath = ServletActionContext.getServletContext().getRealPath(HotelConfig.getValue("operator.image.path"));
+		System.out.println(basePath);
+		System.out.println(imageFileName);
+		System.out.println(image.length());
+		String src = operatorService.uploadOperatorImage(image, imageFileName, basePath);
+		if (src != "") {
+			PrintWriterUtil.getPrintWriter().write(src);
+		}
+		return null;
 	}
 
 	// 删除用户
@@ -172,5 +225,13 @@ public class OperatorAction extends ActionSupport {
 
 	public void setNewPwdSure(String newPwdSure) {
 		this.newPwdSure = newPwdSure;
+	}
+
+	public String getOldPwd() {
+		return oldPwd;
+	}
+
+	public void setOldPwd(String oldPwd) {
+		this.oldPwd = oldPwd;
 	}
 }

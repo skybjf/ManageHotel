@@ -15,6 +15,8 @@
 			<result name="addError">/Login.jsp </result><!-- 主页面 -->
 			<result name="list">/listOperator.jsp </result><!-- 主页面 -->
 			<result name="delOperator">/listOperator.jsp </result><!-- 主页面 -->
+			<result name="updateError">/listOperator.jsp </result><!-- 主页面 -->
+			<result name="uploadOperatiorImage">/listOperator.jsp </result><!-- 主页面 -->
 		</action>
 	</package>
 	<package name="food" namespace="/" extends="struts-default">
