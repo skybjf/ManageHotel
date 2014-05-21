@@ -1,8 +1,5 @@
 package com.hotel.dao;
 
-import java.util.List;
-
-import com.hotel.base.PageObject;
 
 public interface BaseDao {
 
@@ -14,8 +11,4 @@ public interface BaseDao {
 
 	public <T> boolean updateObject(T obj);
 
-	// 该方法用于依据sql语句进行查询的
-	public List<?> selectObjectByIds(String sql);
-
-	public PageObject listObject(String hql, PageObject page);
 }

@@ -17,11 +17,17 @@
 
 
 <title>管理中心</title>
-<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/public.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap.min.css">
-<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/bootstrap-responsive.min.css">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-<link type="text/css" charset="utf-8" rel="stylesheet"	href="css/index.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"
+	href="css/public.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"
+	href="css/bootstrap.min.css">
+<link type="text/css" charset="utf-8" rel="stylesheet"
+	href="css/bootstrap-responsive.min.css">
+<link
+	href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css"
+	rel="stylesheet">
+<link type="text/css" charset="utf-8" rel="stylesheet"
+	href="css/index.css">
 </head>
 <body>
 	<div class="container-fluid control_center">
@@ -45,7 +51,7 @@
 									<li><a href="facility.jsp"><span
 											class="icon-th-large icon-vertical icon-white"></span> 客房设施</a>
 									</li>
-<%-- 									<li><a href="food.jsp"><span
+									<%-- 									<li><a href="food.jsp"><span
 											class="icon-glass icon-vertical icon-white"></span> 美食展示</a>
 									</li> --%>
 									<li><a href="infomation_center.jsp"><span
@@ -72,7 +78,7 @@
 								<ul id="left" class="nav nav-list">
 									<li class="nav-header"><span
 										class="icon-briefcase icon-vertical"></span> 管理中心</li>
-									<li><a>管理员中心</a></li>
+									<li><a onclick=ready()>管理员中心</a></li>
 									<li><a>客房预订</a></li>
 									<li><a>客房登记</a></li>
 									<li><a>客户结账</a></li>
@@ -88,7 +94,6 @@
 								<jsp:include page="control_center_right.jsp"></jsp:include>
 							</div>
 							<div class="showhide hide">
-								userType=${userType}
 								<s:if test="#session.userType==1">
 									<jsp:include page="control_center_adminsuper.jsp"></jsp:include>
 								</s:if>
@@ -119,6 +124,6 @@
 			addStatus($("#left li"), $("#controlcenter .showhide"));
 		});
 	</script>
-	<s:debug></s:debug>
+	<script type="text/javascript" src="js/operator_center.js"></script>
 </body>
 </html>

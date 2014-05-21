@@ -5,9 +5,15 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.aspectj.util.FileUtil;
 
+import com.hotel.base.PageObject;
+import com.hotel.model.Operator;
 import common.Logger;
 
 public class HotelUtils {
@@ -77,5 +83,30 @@ public class HotelUtils {
 	public static void main(String[] args) {
 		System.out.println(HotelUtils.getCurrentTime());
 
+	}
+
+	public static JSONObject toJson(PageObject page) {
+
+		JSONObject object = new JSONObject();
+		JSONArray array = new JSONArray();
+		List<?> operatorList = page.getList();
+		for (Object obj : operatorList) {
+			JSONObject json = new JSONObject();
+			Operator operator = (Operator) obj;
+			json.put("id", operator.getId());
+			json.put("userName", operator.getUserName());
+			json.put("mail", operator.getMail());
+			json.put("gender", operator.getGender().equals("female") ? "女" : "男");
+			json.put("userType", operator.getUserType().equals("0") ? "初级管理员" : "超级管理员");
+			array.add(json);
+		}
+		object.put("operator", array);
+		object.put("prePage", (page.getCurrentPage() - 1) == 0 ? 1 : (page.getCurrentPage() - 1));
+		object.put("nowPage", page.getCurrentPage());
+		object.put("nextPage", ((page.getCurrentPage() + 1) == page.getTotalPage()) ? page.getTotalPage() : (page.getCurrentPage() + 1));
+		object.put("firstPage", 1);
+		object.put("lastPage", page.getTotalPage());
+		object.put("pageSize", 10);
+		return object;
 	}
 }

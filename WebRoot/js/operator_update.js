@@ -50,10 +50,10 @@ $(document).ready(function() {
 			success : function(data) {
 				if (data == 'success'){
 					//密码一致
-					location.href = base_url + '/control_center.jsp';
+					alert("修改完成");
 					}
 				if(data=='fail'){
-					alert('用户名或密码不对');
+					alert('修改失败');
 				}
 			},
 			error : function() {

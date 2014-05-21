@@ -198,5 +198,5 @@ div[data-role="editor-toolbar"] {
 .control_center .adminsuper table tr td{text-align: center;}
 .control_center .right_div .book{height:200px;overflow:auto;}
 .control_center .right_div .book li{line-height:30px;height:30px;margin-top:10px;}
-.confirmForm{background:#FFF;border-radius:4px;margin-top:-200px;margin-left:-250px;padding-top:30px;width:500px;position:absolute;left:50%;top:50%;}
+.confirmForm{background:#FFF;border-radius:4px;margin-top:-200px;margin-left:-250px;padding-top:30px;width:500px;position:absolute;left:50%;top:50%;overflow: auto;height:500px;}
 #hotel_control_traffic,#hotel_control_roomuse,#hotel_control_craft,#hotel_control_temperature{height:520px;}

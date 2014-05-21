@@ -25,27 +25,26 @@
 	<div class="well adminsuper">
 		<div class="row-fluid form-search">
 			<div class="input-append span5 offset2">
-				<input type="text" class="span10 search-query">
-				<button type="submit" class="btn btn-info">查询</button>
+				<input type="text" class="span10 search-query" id="queryName">
+				<button type="submit" class="btn btn-info" onclick=queryOperator()>查询</button>
 			</div>
 			<button id="addadmin" type="submit" class="btn btn-info offset1">添加</button>
 		</div>
+		<iframe id="iframe" hidden="true"></iframe>
 		<!-- 该处是用来添加管理员的 -->
 		<form id="adminsuperadd" class="hide form-horizontal marT20"
-			action="operatorAction!addOperator" method="post"
-			enctype="multipart/form-data">
+			action="operatorAction!uploadOperatiorImage" method="post"
+			enctype="multipart/form-data" target="iframe">
 			<div class="control-group">
 				<label class="control-label" for="inputName">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
 				<div class="controls">
-					<input type="text" id="inputName" placeholder="Name"
-						name="operator.userName">
+					<input type="text" id="inputName" placeholder="Name">
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputEmail">邮箱地址</label>
 				<div class="controls">
-					<input type="text" id="inputEmail" placeholder="Email"
-						name="operator.mail">
+					<input type="text" id="inputEmail" placeholder="Email">
 				</div>
 			</div>
 			<div class="control-group">
@@ -58,16 +57,16 @@
 			<div class="control-group">
 				<label class="control-label" for="inputGender">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
 				<div class="controls">
-					<select name="operator.gender">
+					<select id=selectGender>
 						<option value="male">男</option>
 						<option value="female">女</option>
 					</select>
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="inputGender">管理等级</label>
+				<label class="control-label" for="userType">管理等级</label>
 				<div class="controls">
-					<select name="operator.userType">
+					<select id="userType">
 						<option value="0">初级管理员</option>
 						<option value="1">超级管理员</option>
 					</select>
@@ -81,73 +80,17 @@
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<button type="submit" class="btn btn-info">确定</button>
+					<button type="button" class="btn btn-info" id="superqueding">确定</button>
 					<button id="adminsuperreset" type="reset" class="btn btn-info">取消</button>
 				</div>
 			</div>
 		</form>
 		<div id="showsdmin">
-			<table class="table table-condensed table-striped table-hover marT20">
-				<tr class="warning">
-					<td>id</td>
-					<td>姓名</td>
-					<td>性别</td>
-					<td>邮箱</td>
-					<td>权限级别</td>
-					<td>操作</td>
-				</tr>
-				<tr class="success">
-					<td>1</td>
-					<td>superman</td>
-					<td>男</td>
-					<td>111111111111@126.com</td>
-					<td>一级</td>
-					<td><a class="btn btn-mini">修改</a> <a class="btn btn-mini">删除</a>
-					</td>
-				</tr>
-				<tr class="info">
-					<td>1</td>
-					<td>superman</td>
-					<td>女</td>
-					<td>111111111111@126.com</td>
-					<td>一级</td>
-					<td><a class="btn btn-mini">修改</a> <a class="btn btn-mini">删除</a>
-					</td>
-				</tr>
-				<tr class="success">
-					<td>1</td>
-					<td>superman</td>
-					<td>男</td>
-					<td>111111111111@126.com</td>
-					<td>一级</td>
-					<td><a class="btn btn-mini">修改</a> <a class="btn btn-mini">删除</a>
-					</td>
-				</tr>
-				<tr class="info">
-					<td>1</td>
-					<td>superman</td>
-					<td>女</td>
-					<td>111111111111@126.com</td>
-					<td>一级</td>
-					<td><a class="btn btn-mini">修改</a> <a class="btn btn-mini">删除</a>
-					</td>
-				</tr>
+			<table class="table table-condensed table-striped table-hover marT20"
+				id="showSuper">
+
 			</table>
-			<div class="pagination pagination-centered ">
-				<ul>
-					<li><a>首页</a></li>
-					<li class="active"><a>1</a></li>
-					<li><a>2</a></li>
-					<li><a>3</a></li>
-					<li><a>4</a></li>
-					<li><a>···</a></li>
-					<li><a>6</a></li>
-					<li><a>7</a></li>
-					<li><a>8</a></li>
-					<li><a>9</a></li>
-					<li><a>尾页</a></li>
-				</ul>
-			</div>
+			<div class="pagination pagination-centered " id="showPage"></div>
 		</div>
 	</div>
 
@@ -160,5 +103,6 @@
 							$("#showsdmin"), false);
 				});
 	</script>
+	<script type="text/javascript" src="js/operator_super.js"></script>
 </body>
 </html>

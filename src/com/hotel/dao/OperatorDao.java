@@ -1,6 +1,5 @@
 package com.hotel.dao;
 
-import com.hotel.base.PageObject;
 import com.hotel.model.Operator;
 
 public interface OperatorDao extends BaseDao {
@@ -9,8 +8,8 @@ public interface OperatorDao extends BaseDao {
 
 	public boolean updateOptDelMarkByIds(String[] ids);
 
-	public PageObject listOperator(String hql, PageObject operator);
-
 	public Operator login(Operator opeator);
+
+	public boolean selectOperatorByName(String hql);
 
 }

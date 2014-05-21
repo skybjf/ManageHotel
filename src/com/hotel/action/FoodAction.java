@@ -36,7 +36,7 @@ public class FoodAction extends ActionSupport {
 		food = new Food();
 		food.setId(1);
 		food.setName("adafadf");
-		foodService.addFood(food, image, path, imageFileName);
+//		foodService.addFood(food, image, path, imageFileName);
 		return "ok";
 	}
 

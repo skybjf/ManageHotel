@@ -10,6 +10,7 @@ import com.hotel.service.OperatorService;
 import com.hotel.util.ActionUtil;
 import com.hotel.util.HotelConfig;
 import com.hotel.util.HotelUtils;
+import com.hotel.util.MD5Util;
 import com.hotel.util.PrintWriterUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -35,6 +36,12 @@ public class OperatorAction extends ActionSupport {
 
 	private String newPwdSure;
 
+	private String queryName;
+
+	private Integer page;
+
+	private Integer pageSize;
+
 	// 登录
 	public String login() {
 		System.out.println(operator.toLogString());
@@ -56,9 +63,7 @@ public class OperatorAction extends ActionSupport {
 				ActionUtil.getSession().put("loginTime", login.getLoginTime());
 				ActionUtil.getSession().put("userType", login.getUserType());
 				login.setLoginTime(HotelUtils.getCurrentTime());
-				System.out.println("success");
 				operatorService.updateOperator(login);
-				System.out.println("success");
 				PrintWriterUtil.getPrintWriter().write("success");
 				return null;
 			} else {
@@ -92,29 +97,43 @@ public class OperatorAction extends ActionSupport {
 		return "logout";
 	}
 
+	public String beforAddOperator() {
+		boolean flag = operatorService.selectOparatorByName(operator.getUserName());
+		if (flag) {
+			PrintWriterUtil.getPrintWriter().write("success");
+			return null;
+		}
+		PrintWriterUtil.getPrintWriter().write("fail");
+		return null;
+	}
+
 	// 添加用户
 	public String addOperator() {
-		String basePath = ServletActionContext.getServletContext().getRealPath(HotelConfig.getValue("operator.image.path"));
-		System.out.println(basePath);
 		if (operator.getUserName().equals("") || operator.getUserName() == null || operator.getPwd().equals("") || operator.getPwd() == null) {
-			return "addError";
+			PrintWriterUtil.getPrintWriter().write("fail");
+			return null;
 		}
-		boolean flag = operatorService.addOperator(operator, basePath, image, imageFileName);
+		System.out.println(operator.getUrl());
+		boolean flag = operatorService.selectOparatorByName(operator.getUserName());
 		if (flag) {
-			log.info(HotelUtils.getCurrentTime() + "add " + operator.toLogString() + " SUCCESS");
-			return "addSuccess";
-		} else {
-			log.info(HotelUtils.getCurrentTime() + "add " + operator.toLogString() + " ERROR");
-			return "addError";
+			operatorService.addOperator(operator);
+			PrintWriterUtil.getPrintWriter().write("success");
 		}
+		PrintWriterUtil.getPrintWriter().write("fail");
+		return null;
 	}
 
 	// 模糊查看用户
 	public String listOperator() {
+		if (page == null || page == 0) {
+			page = 1;
+		}
+		this.pageOperator = operatorService.listOperator(page, 10, queryName);
+		System.out.println(HotelUtils.toJson(pageOperator).toString());
+		// PrintWriterUtil.getPrintWriter().write(HotelUtils.toJson(pageOperator).toString());
+		PrintWriterUtil.getJsonPrintWriter().write(HotelUtils.toJson(pageOperator).toString());
 
-		this.pageOperator = operatorService.listOperator(pageOperator, "", "");
-		System.out.println(pageOperator.getList().size());
-		return "list";
+		return null;
 	}
 
 	// 通过ID 查询operator 修改之前的查询
@@ -128,9 +147,11 @@ public class OperatorAction extends ActionSupport {
 	public String updateOperator() {
 		operator.setId(Integer.valueOf(ActionUtil.getSession().get("operatorId").toString()));
 		if (newPwd.equals(newPwdSure)) {
-			operator.setPwd(newPwd);
+			operator.setPwd(MD5Util.encryption(newPwd));
+			operator.setLoginTime(HotelUtils.getCurrentTime());
 			operator.setDelMark("0");
 			if (operator.getUrl() != "" && operator.getUrl() != null) {
+				ActionUtil.getSession().put("image", operator.getUrl());
 				boolean flag = operatorService.updateOperator(operator);
 				if (flag) {
 					PrintWriterUtil.getPrintWriter().write("success");
@@ -163,11 +184,15 @@ public class OperatorAction extends ActionSupport {
 		ids[0] = operator.getId() + "";
 		boolean flag = operatorService.delOperatorByIds(ids);
 		if (flag) {
-			return "updateSuccess";
+			this.pageOperator = operatorService.listOperator(1, 10, queryName);
+			System.out.println(HotelUtils.toJson(pageOperator).toString());
+			// PrintWriterUtil.getPrintWriter().write(HotelUtils.toJson(pageOperator).toString());
+			PrintWriterUtil.getJsonPrintWriter().write(HotelUtils.toJson(pageOperator).toString());
+			return null;
 
 		} else {
 
-			return "updateError";
+			return null;
 		}
 	}
 
@@ -234,4 +259,29 @@ public class OperatorAction extends ActionSupport {
 	public void setOldPwd(String oldPwd) {
 		this.oldPwd = oldPwd;
 	}
+
+	public String getQueryName() {
+		return queryName;
+	}
+
+	public void setQueryName(String queryName) {
+		this.queryName = queryName;
+	}
+
+	public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public Integer getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+
 }

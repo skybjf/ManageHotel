@@ -3,8 +3,9 @@ package com.hotel.dao.imp;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
-import com.hotel.base.PageObject;
 import com.hotel.dao.OperatorDao;
 import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
@@ -44,11 +45,6 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 		return true;
 	}
 
-	public PageObject listOperator(String hql, PageObject operator) {
-
-		return super.listObject(hql, operator);
-	}
-
 	// 登录功能
 	public Operator login(Operator operator) {
 		Operator res = this.selectObject(operator);
@@ -58,5 +54,15 @@ public class OperatorDaoImp extends BaseDaoImp implements OperatorDao {
 			return res;
 		} else
 			return null;
+	}
+
+	public boolean selectOperatorByName(String hql) {
+		Session session = this.getSession();
+		Query query = session.createQuery(hql);
+		List<?> list = query.list();
+		if (list.size() <= 0) {
+			return true;
+		}
+		return false;
 	}
 }

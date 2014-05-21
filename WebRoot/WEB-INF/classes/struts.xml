@@ -24,4 +24,9 @@
 			<result name="ok">/upload.jsp</result><!-- 登录成功 -->
 		</action>
 	</package>
+	<package name="recruitment" namespace="/" extends="struts-default">
+		<action name="recruitmentAction" class="com.hotel.action.RecruitmentAction">
+			<result name="ok">/upload.jsp</result><!-- 登录成功 -->
+		</action>
+	</package>
 </struts>

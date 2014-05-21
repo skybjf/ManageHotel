@@ -62,8 +62,8 @@
 		<!-- 	+++++++++++++++++++++++++ -->
 		
 		<div class="recruitinfodiv hide">
-			<div class="row-fluid"><input class="span12" type="text" /></div>
-			<div class="row-fluid marT10"><b>月薪</b>：<input class="span1" type="text" />	<b>招聘</b>：<input class="span1" type="text" /></div>
+			<div class="row-fluid"><input class="span12" type="text"  id="zhaopin"/></div>
+			<div class="row-fluid marT10"><b>月薪</b>：<input class="span1" type="text" / id="mySalary">	<b>招聘</b>：<input class="span1" type="text" id="number"/></div>
 			<div class="btn-toolbar" data-role="editor-toolbar"	data-target="#editor1">
 				<div class="btn-group">
 					<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i
@@ -120,7 +120,7 @@
 			
 			<div id="editor1">输入内容&hellip;</div>
 			<div class="clearfix">
-				<button id="comfirreleaserecruit" class="btn btn-primary marT10 offset3 span2" type="button">完成</button>
+				<button id="comfirreleaserecruit" class="btn btn-primary marT10 offset3 span2" type="button" >完成</button>
 				<button id="recruitmentReset" class="btn btn-primary marT10  span2" type="button">清除</button>
 				<button id="gobacktorecruitment" class="btn btn-primary marT10  span2" type="button">返回</button>	
 			</div>
@@ -190,8 +190,28 @@
 			showToggle($('#releaserecruitinfo'),$('.recruitinfodiv'),$('#showrecruitment'),true);		
 			showToggle($('#gobacktorecruitment'),$('.recruitinfodiv'),$('#showrecruitment'),false);	
 			$('#comfirreleaserecruit').click(function(){
-				var str=$('#editor1').html();
-				alert(str);
+				var zhaopin= encodeURI(encodeURI($('#zhaopin').val()));
+				var mySalary= $('#mySalary').val();
+				var number= $('#number').val();
+				var str=encodeURI(encodeURI($('#editor1').html()));
+					$.ajax({
+						url : base_url + '/recruitmentAction!addRecruitment?recruitment.name='+zhaopin+'&recruitment.salary='+mySalary+'&recruitment.peopleNumber='+number+'&recruitment.description='+str,
+						type : 'post',
+						header:'Content-Type:text/html',
+						charset:'UTF-8',
+						success : function(data) {
+							if (data == 'success'){
+								// 密码一致
+								alert('add seccess' );
+								}
+							if(data=='fail'){
+								alert('户名不可用');
+							}
+						},
+						error : function() {
+							alert('失败');
+					}
+				});
 			});
 		});
 		
@@ -199,6 +219,11 @@
 		$('#recruitmentReset').click(function(){
 			$('#editor1').empty();
 		});
+		var base_url = location.href.substring(0, location.href
+		.indexOf(location.pathname));
+// 项目名
+var current_url = location.pathname.split('/')[1];
+base_url += '/' + current_url;
 	</script>
 </body>
 </html>

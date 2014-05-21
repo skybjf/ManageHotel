@@ -15,9 +15,13 @@
 	<!-- 用户Action -->
 	<bean id="operatorAction" class="com.hotel.action.OperatorAction">
 		<property name="operatorService" ref="operatorService" />
+		<property name="pageOperator" ref="pageObject" />
 	</bean>
 	<bean id="foodAction" class="com.hotel.action.FoodAction">
 		<property name="foodService" ref="foodService" />
+	</bean>
+	<bean id="recruitmentAction" class="com.hotel.action.RecruitmentAction">
+		<property name="recruitmentService" ref="recruitmentService" />
 	</bean>
 	<!-- action 层 end -->
 
@@ -25,9 +29,17 @@
 
 	<bean id="operatorService" class="com.hotel.service.imp.OperatorServiceImp">
 		<property name="operatorDao" ref="operatorDao" />
+		<property name="pageService" ref="pageService" />
+	</bean>
+	<bean id="pageService" class="com.hotel.service.imp.PageObjectServiceImp">
+		<property name="pageDao" ref="pageDao" />
 	</bean>
 	<bean id="foodService" class="com.hotel.service.imp.FoodServiceImp">
 		<property name="foodDao" ref="foodDao" />
+	</bean>
+	<bean id="recruitmentService" class="com.hotel.service.imp.RecruitmentServiceImp">
+		<property name="recruitmentDao" ref="recruitmentDao" />
+		<property name="pageService" ref="pageService" />
 	</bean>
 
 	<!-- service 层 end -->
@@ -37,10 +49,19 @@
 	<bean id="operatorDao" class="com.hotel.dao.imp.OperatorDaoImp">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
+	<bean id="pageDao" class="com.hotel.dao.imp.PageObjectDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
 	<bean id="foodDao" class="com.hotel.dao.imp.FoodDaoImp">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
+	<bean id="recruitmentDao" class="com.hotel.dao.imp.RecruitmentDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
 	<!-- dao 层 end -->
+
+	<bean id="pageObject" class="com.hotel.base.PageObject">
+	</bean>
 
 
 </beans>

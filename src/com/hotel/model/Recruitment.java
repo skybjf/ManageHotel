@@ -1,14 +1,14 @@
 package com.hotel.model;
 
 /**
- * @author LXG 该类为招聘信息model
+ * 该类为招聘信息model
  */
 
 public class Recruitment {
 
 	private Integer id; // 自增ID
 	private String name; // 招聘职位
-	private float salary; // 该职位的薪资
+	private Float salary; // 该职位的薪资
 	private Integer peopleNumber; // 招聘人人数
 	private String description; // 职位描述
 	private String published; // 发布时间
@@ -30,11 +30,11 @@ public class Recruitment {
 		this.name = name;
 	}
 
-	public float getSalary() {
+	public Float getSalary() {
 		return salary;
 	}
 
-	public void setSalary(float salary) {
+	public void setSalary(Float salary) {
 		this.salary = salary;
 	}
 

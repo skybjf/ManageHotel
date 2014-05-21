@@ -15,7 +15,7 @@ public interface OperatorService {
 
 	boolean updateOperator(Operator operator);
 
-	PageObject listOperator(PageObject operator, String name, String id);
+	PageObject listOperator(int page, int pageSize, String name);
 
 	// 该方法用于删除，不论是批量删除还是单个删除
 	boolean delOperatorByIds(String[] ids);
@@ -23,5 +23,9 @@ public interface OperatorService {
 	Operator selectOperator(Operator operator);
 
 	String uploadOperatorImage(File file, String fileName, String upPath);
+
+	boolean selectOparatorByName(String name);
+
+	boolean addOperator(Operator operaotr);
 
 }

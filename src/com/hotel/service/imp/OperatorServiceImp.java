@@ -7,12 +7,14 @@ import com.hotel.dao.OperatorDao;
 import com.hotel.enums.TablesEnum;
 import com.hotel.model.Operator;
 import com.hotel.service.OperatorService;
+import com.hotel.service.PageObjectService;
 import com.hotel.util.HotelUtils;
 import com.hotel.util.MD5Util;
 
 public class OperatorServiceImp implements OperatorService {
 
 	private OperatorDao operatorDao;
+	private PageObjectService pageService;
 
 	public OperatorDao getOperatorDao() {
 		return operatorDao;
@@ -52,22 +54,18 @@ public class OperatorServiceImp implements OperatorService {
 	}
 
 	public boolean updateOperator(Operator operator) {
-		operator.setPwd(MD5Util.encryption(operator.getPwd()));
-		operator.setLoginTime(HotelUtils.getCurrentTime());
 		return this.operatorDao.updateObject(operator);
 	}
 
-	public PageObject listOperator(PageObject operator, String name, String id) {
+	public PageObject listOperator(int page, int pageSize,String name) {
+		System.out.println("query");
 		StringBuilder sb = new StringBuilder("from ");
 		sb.append(TablesEnum.OPERATOR.getTableName()).append(" where 1=1 ");
 		if (name != null && !name.equals("")) {
 			sb.append(" and userName like '%").append(name).append("%' ");
 		}
-
-		if (id != null && !id.equals("")) {
-			sb.append(" and id like '%").append(id).append("%'");
-		}
-		return operatorDao.listOperator(sb.toString(), operator);
+		System.out.println(sb.toString());
+		return pageService.queryForPage(sb.toString(), pageSize, page);
 	}
 
 	public boolean delOperatorByIds(String[] ids) {
@@ -86,6 +84,27 @@ public class OperatorServiceImp implements OperatorService {
 	public String uploadOperatorImage(File file, String fileName, String upPath) {
 		System.out.println(fileName);
 		return HotelUtils.upLoadFile(file, fileName, upPath);
+	}
+
+	public boolean selectOparatorByName(String name) {
+		String hql = "from " + TablesEnum.OPERATOR.getTableName() + " where userName ='" + name + "'";
+		return operatorDao.selectOperatorByName(hql);
+	}
+
+	public boolean addOperator(Operator operator) {
+		operator.setPwd(MD5Util.encryption(operator.getPwd()));
+		System.err.println(operator.toLogString());
+		operator.setLoginTime("0000-00-00 00:00:00");
+		operator.setDelMark("0");
+		return operatorDao.saveObject(operator);
+	}
+
+	public PageObjectService getPageService() {
+		return pageService;
+	}
+
+	public void setPageService(PageObjectService pageService) {
+		this.pageService = pageService;
 	}
 
 }
