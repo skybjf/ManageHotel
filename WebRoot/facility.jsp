@@ -42,7 +42,7 @@
 							<div class="nav-collapse collapse">
 								<p class="navbar-text pull-right" style="line-height: 50px;">
 									<span class="navbar-link "><span
-										class="icon-user icon-vertical icon-white"></span>Username</span> <a
+										class="icon-user icon-vertical icon-white"></span>Admin</span> <a
 										href="#" class="navbar-link"><span
 										class="icon-remove icon-vertical icon-white"></span>退出</a>
 								</p>
@@ -83,17 +83,77 @@
 								<li class="row-fluid each_room marT20">
 									<div class="span12">
 										<div class="img span3">
-											<img class="img-polaroid" src="img/room/room_hh_big.jpg" />
+											<img class="img-polaroid" src="img/room/room_hh_business_big.jpg" />
 										</div>
 										<div class="text span9">
-											<h4>name</h4>
+											<h4>豪华商务套房</h4>
 											<div class="clearfix roomDetail">
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/>
+												<input class="f_l" readonly type="text" value="超大床 "/> 
+												<input class="f_l" readonly type="text" value="台灯"/> 
+												<input class="f_l" readonly type="text" value="鞋柜"/> 
+												<input class="f_l" readonly type="text" value="空调"/> 
+												<input class="f_l" readonly type="text" value="电话"/> 
+												<input class="f_l" readonly type="text" value="热水器"/>
+												<input class="f_l" readonly type="text" value="47寸电视"/>
+												<input class="f_l" readonly type="text" value="互联网"/>
+												<input class="f_l" readonly type="text" value="两室一卫"/>
+												<input class="f_l" readonly type="text" value="836元"/>
+											</div>
+											<div class="marT10 clearfix">
+												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>
+												<button type="button" class="btn btn-mini btn-primary btnChange">修改</button>
+												<button type="button" class="btn btn-mini btn-primary btnConfir">完成</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								
+								<li class="row-fluid each_room marT20">
+									<div class="span12">
+										<div class="img span3">
+											<img class="img-polaroid" src="img/room/room_hh_business.jpg" />
+										</div>
+										<div class="text span9">
+											<h4>高级商务套房</h4>
+											<div class="clearfix roomDetail">
+												<input class="f_l" readonly type="text" value="双人床"/> 
+												<input class="f_l" readonly type="text" value="台灯（2）"/> 
+												<input class="f_l" readonly type="text" value="鞋柜"/> 
+												<input class="f_l" readonly type="text" value="空调"/> 
+												<input class="f_l" readonly type="text" value="电话"/> 
+												<input class="f_l" readonly type="text" value="热水器"/>
+												<input class="f_l" readonly type="text" value="37寸电视"/>
+												<input class="f_l" readonly type="text" value="互联网"/>
+												<input class="f_l" readonly type="text" value="两室一卫"/>
+												<input class="f_l" readonly type="text" value="676元"/>
+											</div>
+											<div class="marT10 clearfix">
+												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>
+												<button type="button" class="btn btn-mini btn-primary btnChange">修改</button>
+												<button type="button" class="btn btn-mini btn-primary btnConfir">完成</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								
+								<li class="row-fluid each_room marT20">
+									<div class="span12">
+										<div class="img span3">
+											<img class="img-polaroid" src="img/room/room_hh_two.jpg" />
+										</div>
+										<div class="text span9">
+											<h4>豪华双人床</h4>
+											<div class="clearfix roomDetail">
+												<input class="f_l" readonly type="text" value="双人床"/> 
+												<input class="f_l" readonly type="text" value="台灯"/> 
+												<input class="f_l" readonly type="text" value="鞋柜"/> 
+												<input class="f_l" readonly type="text" value="空调"/> 
+												<input class="f_l" readonly type="text" value="电话"/> 
+												<input class="f_l" readonly type="text" value="热水器"/>
+												<input class="f_l" readonly type="text" value="37寸电视"/>
+												<input class="f_l" readonly type="text" value="互联网"/>
+												<input class="f_l" readonly type="text" value="一室一卫"/>
+												<input class="f_l" readonly type="text" value="285元"/>
 											</div>
 											<div class="marT10 clearfix">
 												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>
@@ -110,14 +170,18 @@
 											<img class="img-polaroid" src="img/room/room_hh_big.jpg" />
 										</div>
 										<div class="text span9">
-											<h4>name</h4>
+											<h4>豪华大床房</h4>
 											<div class="clearfix roomDetail">
-												<input class="f_l" readonly type="text" value="1 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="1"/> 
-												<input class="f_l" readonly type="text" value="1 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/>
+												<input class="f_l" readonly="readonly" type="text" value="超大床"/> 
+												<input class="f_l" readonly type="text" value="台灯"/> 
+												<input class="f_l" readonly type="text" value="鞋柜"/> 
+												<input class="f_l" readonly type="text" value="空调"/> 
+												<input class="f_l" readonly type="text" value="电话"/> 
+												<input class="f_l" readonly type="text" value="热水器"/> 
+												<input class="f_l" readonly type="text" value="32寸电视"/>
+												<input class="f_l" readonly type="text" value="互联网"/> 
+												<input class="f_l" readonly type="text" value="一室一卫"/>
+												<input class="f_l" readonly type="text" value="253元"/> 
 											</div>
 											<div class="marT10 clearfix">
 												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>
@@ -127,45 +191,23 @@
 										</div>
 									</div>
 								</li>
-								
 								<li class="row-fluid each_room marT20">
 									<div class="span12">
 										<div class="img span3">
-											<img class="img-polaroid" src="img/room/room_hh_big.jpg" />
+											<img class="img-polaroid" src="img/room/room_singel.jpg" />
 										</div>
 										<div class="text span9">
-											<h4>name</h4>
+											<h4>单人房</h4>
 											<div class="clearfix roomDetail">
-												<input class="f_l" readonly type="text" value="2 "/> 
-												<input class="f_l" readonly type="text" value="2 "/> 
-												<input class="f_l" readonly type="text" value="2 "/> 
-												<input class="f_l" readonly type="text" value="2 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/>
-											</div>
-											<div class="marT10 clearfix">
-												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>
-												<button type="button" class="btn btn-mini btn-primary btnChange">修改</button>
-												<button type="button" class="btn btn-mini btn-primary btnConfir">完成</button>
-											</div>
-										</div>
-									</div>
-								</li>
-								
-								<li class="row-fluid each_room marT20">
-									<div class="span12">
-										<div class="img span3">
-											<img class="img-polaroid" src="img/room/room_hh_big.jpg" />
-										</div>
-										<div class="text span9">
-											<h4>name</h4>
-											<div class="clearfix roomDetail">
-												<input class="f_l" readonly="readonly" type="text" value="3 "/> 
-												<input class="f_l" readonly type="text" value="3 "/> 
-												<input class="f_l" readonly type="text" value="3 "/> 
-												<input class="f_l" readonly type="text" value="3 "/> 
-												<input class="f_l" readonly type="text" value="床 "/> 
-												<input class="f_l" readonly type="text" value="床 "/>
+												<input class="f_l" readonly="readonly" type="text" value="床"/> 
+												<input class="f_l" readonly type="text" value="台灯"/> 
+												<input class="f_l" readonly type="text" value="鞋柜"/> 
+												<input class="f_l" readonly type="text" value="空调"/> 
+												<input class="f_l" readonly type="text" value="电话"/> 
+												<input class="f_l" readonly type="text" value="热水器"/>
+												<input class="f_l" readonly type="text" value="32寸电视"/>
+												<input class="f_l" readonly type="text" value="一室一卫"/>
+												<input class="f_l" readonly type="text" value="188元"/>
 											</div>
 											<div class="marT10 clearfix">
 												<button type="button" class="btn btn-mini btn-primary addInput offset4 ">添加</button>

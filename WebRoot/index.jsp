@@ -105,11 +105,10 @@
 											href="#collapseFour"><span class="icon-briefcase icon-vertical"></span> 管理中心</div>
 										<div id="collapseFour" class="accordion-body in collapse">
 											<ul class="accordion-inner nav nav-list">
-												<li><a href="#">豪华商务套房</a></li>
-												<li><a href="#">高级商务套房</a></li>
-												<li><a href="#">豪华双人房</a></li>
-												<li><a href="#">豪华大床房</a></li>
-												<li><a href="#">单人房</a></li>
+												<li><a href="#">管理员中心</a></li>
+												<li><a href="#">客房预订</a></li>
+												<li><a href="#">客房登记</a></li>
+												<li><a href="#">客户结账</a></li>
 											</ul>
 										</div>
 									</li>

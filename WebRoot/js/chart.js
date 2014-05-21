@@ -1,5 +1,4 @@
 $(function() {
-
 	/* traffic 客流量 */
 	$('#traffic').highcharts({
 		chart : {
@@ -10,7 +9,7 @@ $(function() {
 		exporting : {
 			enabled : false
 		},
-		title : {text : '客流量'},
+		title : {text : '客流量百分比'},
 		tooltip : {pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'},
 		plotOptions : {
 			pie : {
@@ -130,7 +129,7 @@ $(function() {
 	$('#temperature').highcharts({
 		chart : {type : "line"},
 		title : {
-			text : '一周温度',
+			text : '十天温度',
 			x : -20
 			// center
 		},
@@ -139,10 +138,10 @@ $(function() {
 			x : -20
 		},
 		xAxis : {
-			categories : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+			categories : ['Sun.', 'Mon.', 'Tue.', 'Wed.', 'Thur.', 'Fri.','Sat.']
 		},
 		yAxis : {
-			title : {text : '收益金额(￥)'},
+			title : {text : '摄氏度(℃)'},
 			plotLines : [ {
 				value : 0,
 				width : 1,
@@ -155,7 +154,7 @@ $(function() {
 		exporting : {enabled : false},
 		series : [ {
 			name : '收益',
-			data : [ 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3,	18.3, 13.9, 9.6 ]
+			data : [25, 27, 24.5, 25.2, 26.5, 27.8,28]
 		} ]
 	});
 	

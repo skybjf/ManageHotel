@@ -136,8 +136,7 @@
 						'Times', 'Times New Roman', 'Verdana' ], fontTarget = $(
 						'[title=Font]').siblings('.dropdown-menu');
 						$.each(fonts,function(idx, fontName) {
-									fontTarget
-											.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'
+									fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'
 													+ fontName + '</a></li>'));
 								});
 				$('a[title]').tooltip({
@@ -172,8 +171,7 @@
 				} else {
 					$('#voiceBtn').hide();
 				}
-			}
-			;
+			};
 			function showErrorAlert(reason, detail) {
 				var msg = '';
 				if (reason === 'unsupported-file-type') {
@@ -182,8 +180,7 @@
 					console.log("error uploading file", reason, detail);
 				}
 				$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ '<strong>File upload error</strong> '+ msg+ ' </div>').prependTo('#alerts');
-			}
-			;
+			};
 			initToolbarBootstrapBindings();
 			$('#editor1').wysiwyg({fileUploadError : showErrorAlert});
 			/* 发布招聘信息 */

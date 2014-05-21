@@ -35,39 +35,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      categories = ['第一季度', '第二季度', '第三季度', '第四季度'],
      name = 'Browser brands',
      data = [{
-             y: 55.11,
+             y: 20,
              color: colors[0],
              drilldown: {
                  name: '第一季度',
                  categories: ['1', '2', '3'],
-                 data: [10.85, 7.35, 33.06],
+                 data: [5, 7, 8],
                  color: colors[0]
              }
          }, {
-             y: 21.63,
+             y: 35,
              color: colors[1],
              drilldown: {
                  name: '第二季度',
                  categories: ['4', '5', '6'],
-                 data: [1.58, 13.12, 5.43],
+                 data: [10,12.5, 12.5],
                  color: colors[1]
              }
          	}, {
-             y: 11.94,
+             y: 35,
              color: colors[2],
              drilldown: {
                  name: '第三季度',
                  categories: ['7', '8', '9'],
-                 data: [0.12, 0.19, 0.12],
+                 data: [13, 11, 11],
                  color: colors[2]
              }
          }, {
-             y: 7.15,
+             y: 10,
              color: colors[3],
              drilldown: {
                  name: '第四季度',
                  categories: ['10', '11', '12'],
-                 data: [4.55, 1.42, 0.23],
+                 data: [7, 2, 1],
                  color: colors[3]
              }
          }];
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		         renderTo: 'hotel_control_traffic'
 		     },
 		     title: {
-		         text: '客流量（2014）'
+		         text: '客流量（2013）百分比'
 		     },
 		     yAxis: {
 		         title: {

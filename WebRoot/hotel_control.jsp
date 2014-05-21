@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</li>
 									<li><a>酒店收益</a>
 									</li>
-									<li><a>温度检测</a>
+									<li><a>温度提示</a>
 									</li>
 								</ul>
 							</div>
