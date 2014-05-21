@@ -9,28 +9,28 @@
 			<generator class="identity" />
 		</id>
 		<property name="name" type="java.lang.String">
-			<column name="name" length="50" not-null="true">
+			<column name="name" length="50" >
 			</column>
 		</property>
 		<property name="salary" type="java.lang.Float">
-			<column name="salary" not-null="true">
+			<column name="salary" >
 			</column>
 		</property>
 		<property name="peopleNumber" type="java.lang.Integer"
-			not-null="true">
+			>
 			<column name="people_number">
 			</column>
 		</property>
 		<property name="description" type="java.lang.String"
-			not-null="true">
+			>
 			<column name="description" length="500">
 			</column>
 		</property>
-		<property name="published" type="java.lang.String" not-null="true">
+		<property name="published" type="java.lang.String" >
 			<column name="published" length="20">
 			</column>
 		</property>
-		<property name="delMark" type="java.lang.String" not-null="true">
+		<property name="delMark" type="java.lang.String" >
 			<column name="delmark" length="1">
 			</column>
 		</property>

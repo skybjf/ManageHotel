@@ -26,31 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="well">
     	<div id="showmeeting">
 			<h3 class="text-center">会议安排</h3>
-			<ul>
-				<li class="marT20">
-					<h4>会议标题</h4><div>2015-05-06</div>
-					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-					<div class="clearfix marT10">
-						<button id="meetingReset" class="btn btn-primary btn-mini " type="button">修改</button>
-						<button id="meetingDel" class="btn btn-primary btn-mini " type="button">删除</button>	
-					</div>
-				</li>
-				<li class="marT20">
-					<h4>会议标题</h4>
-					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-				</li>
-				<li class="marT20">
-					<h4>会议标题</h4>
-					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-				</li>
-				<li class="marT20">
-					<h4>会议标题</h4>
-					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-				</li>
-				<li class="marT20">
-					<h4>会议标题</h4>
-					<p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-				</li>
+			<ul id="meetingCenter">
 			</ul>
 			<div class="clearfix">
 				<button id="createmeeting" class="btn btn-primary marT10 offset4 span4" type="button">创建新会议</button>

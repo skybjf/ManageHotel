@@ -3,6 +3,8 @@ package com.hotel.dao.imp;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.hotel.dao.BaseDao;
@@ -22,6 +24,8 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 
 	public <T> boolean delObject(T obj) {
 		try {
+			System.out.println("delete");
+			System.out.println(obj.toString());
 			this.getHibernateTemplate().delete(obj);
 		} catch (Exception e) {
 			log.error("del [" + obj.getClass().getSimpleName() + "] error :" + obj.toString(), e);
@@ -59,8 +63,26 @@ public class BaseDaoImp extends HibernateDaoSupport implements BaseDao {
 	}
 
 	// 该方法是用于删除或修改之前的准备工作
-	public List<?> selectObjectByIds(String sql) {
-		List<?> list = this.getHibernateTemplate().find(sql);
+	public List<?> selectObjectByIds(String hql) {
+		List<?> list = this.getHibernateTemplate().find(hql);
+		return list;
+	}
+
+	public List<?> selectObject(String hql) {
+		List<?> list = null;
+		try {
+			System.out.println("kkkkkkkkkkkkkkkkkkkk");
+			Session session = this.getSession();
+			Query query = session.createQuery(hql);
+			System.out.println("````````````````````````");
+			query.setFirstResult(0);
+			query.setMaxResults(5);
+			System.out.println("`````22222````````");
+			list = query.list();
+			System.out.println("`````````3333```````");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 }

@@ -15,13 +15,19 @@ public class RecruitmentAction extends ActionSupport {
 		boolean flag = this.recruitmentService.addRecruitment(recruitment);
 		if (flag) {
 			PrintWriterUtil.getPrintWriter().write("success");
+		} else {
+			PrintWriterUtil.getPrintWriter().write("fail");
 		}
-		PrintWriterUtil.getPrintWriter().write("fail");
 		return null;
 	}
 
 	public String delRecruitment() {
-		this.recruitmentService.delRecruitment(recruitment);
+		boolean flag = this.recruitmentService.delRecruitment(recruitment);
+		if (flag) {
+			PrintWriterUtil.getPrintWriter().write("success");
+		} else {
+			PrintWriterUtil.getPrintWriter().write("fail");
+		}
 		return null;
 	}
 

@@ -14,7 +14,7 @@ public enum TablesEnum {
 	ORDER(6, "Order"), 
 	RECRUITMENT(7, "Recruitment"),
 	ROONINFO(8, "RoomInfo"), 
-	ROOMTYPE(9, "RoonType"),
+	ROOMTYPE(9, "RoomType"),
 	;
 
 	int code;

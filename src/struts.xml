@@ -29,4 +29,9 @@
 			<result name="ok">/upload.jsp</result><!-- 登录成功 -->
 		</action>
 	</package>
+	<package name="base" namespace="/" extends="struts-default">
+		<action name="baseAction" class="com.hotel.action.BaseAction">
+			<result name="ok">/upload.jsp</result><!-- 登录成功 -->
+		</action>
+	</package>
 </struts>

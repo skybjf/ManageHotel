@@ -5,8 +5,8 @@ public class RoomType {
 	private int id;// 自增ID
 	private String name;// 房间类别名称
 	private String type;// 房屋型号
-	private String price;// 价格
-	private String discount;// 折扣
+	private Float price;// 价格
+	private Integer discount;// 折扣
 	private String description;// 描述
 	private String picUrl;// 图片展示
 	private String delMark; // 删除标记
@@ -35,19 +35,19 @@ public class RoomType {
 		this.type = type;
 	}
 
-	public String getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
-	public String getDiscount() {
+	public Integer getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(String discount) {
+	public void setDiscount(Integer discount) {
 		this.discount = discount;
 	}
 

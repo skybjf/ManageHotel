@@ -17,6 +17,9 @@
 		<property name="operatorService" ref="operatorService" />
 		<property name="pageOperator" ref="pageObject" />
 	</bean>
+	<bean id="baseAction" class="com.hotel.action.BaseAction">
+		<property name="baseDao" ref="baseDao" />
+	</bean>
 	<bean id="foodAction" class="com.hotel.action.FoodAction">
 		<property name="foodService" ref="foodService" />
 	</bean>
@@ -56,6 +59,9 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 	<bean id="recruitmentDao" class="com.hotel.dao.imp.RecruitmentDaoImp">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="baseDao" class="com.hotel.dao.imp.BaseDaoImp">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 	<!-- dao 层 end -->

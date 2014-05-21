@@ -29,31 +29,7 @@
 	<div class="well">
 		<div id="showrecruitment">
 			<h3 class="text-center">招聘信息</h3>
-			<ul>
-				<li class="marT20">
-					<h4>在招聘的岗位</h4>
-					<div><b>月薪</b>：3000元	<b>招聘</b>：10-30人</div>
-					<p>打破撕破担惊受怕冬季阿婆鸡婆随风飘散的佛教的批发价的婆婆都将打破打破附近的赔付判决哦</p>
-					<div class="clearfix marT10">
-						<button id="recruitmentChange" class="btn btn-primary btn-mini " type="button">修改</button>
-						<button id="" class="btn btn-primary btn-mini " type="button">删除</button>	
-					</div>
-				</li>
-				<li class="marT20">
-					<h4>在招聘的岗位</h4>
-					<div><b>月薪</b>：3000元	<b>招聘</b>：10-30人</div>
-					<p>打破撕破担惊受怕冬季阿婆鸡婆随风飘散的佛教的批发价的婆婆都将打破打破附近的赔付判决哦</p>
-				</li>
-				<li class="marT20">
-					<h4>在招聘的岗位</h4>
-					<div><b>月薪</b>：3000元	<b>招聘</b>：10-30人</div>
-					<p>打破撕破担惊受怕冬季阿婆鸡婆随风飘散的佛教的批发价的婆婆都将打破打破附近的赔付判决哦</p>
-				</li>
-				<li class="marT20">
-					<h4>在招聘的岗位</h4>
-					<div><b>月薪</b>：3000元	<b>招聘</b>：10-30人</div>
-					<p>打破撕破担惊受怕冬季阿婆鸡婆随风飘散的佛教的批发价的婆婆都将打破打破附近的赔付判决哦</p>
-				</li>
+			<ul id="zhaopinCenter">
 			</ul>
 			<div class="clearfix">
 				<button id="releaserecruitinfo" class="btn btn-primary marT10 offset4 span4" type="button">发布新岗位</button>
@@ -200,12 +176,13 @@
 						header:'Content-Type:text/html',
 						charset:'UTF-8',
 						success : function(data) {
-							if (data == 'success'){
-								// 密码一致
-								alert('add seccess' );
+						alert(data);
+							if (data=='success'){
+						alert("sss");
+								location.href=base_url+'/infomation_center.jsp';
 								}
 							if(data=='fail'){
-								alert('户名不可用');
+								alert('添加失败');
 							}
 						},
 						error : function() {

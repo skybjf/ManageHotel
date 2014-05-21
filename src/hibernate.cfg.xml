@@ -45,6 +45,8 @@
 	<mapping resource="com/hotel/model/RoomType.hbm.xml" />
 	<mapping resource="com/hotel/model/Food.hbm.xml" />
 	<mapping resource="com/hotel/model/Recruitment.hbm.xml" />
+	<mapping resource="com/hotel/model/Meeting.hbm.xml" />
+	<mapping resource="com/hotel/model/News.hbm.xml" />
 </session-factory>
 
 </hibernate-configuration>
